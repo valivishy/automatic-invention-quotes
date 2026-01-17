@@ -1,102 +1,101 @@
 # Book Quotes Desktop Widget
 
-A native macOS app using SwiftUI and WidgetKit that displays quotes and passages from books on your desktop, with timed rotation.
+Full-screen book quotes on your macOS desktop using [Übersicht](http://tracesof.net/uebersicht/). No Xcode or Apple Developer account needed.
 
 ## Features
 
-- **Desktop Widget**: Shows quotes in small, medium, or large sizes
-- **Quote Management**: Add, edit, delete, and favorite quotes
-- **Automatic Rotation**: Configurable refresh intervals (15min to daily)
-- **Dark Mode Support**: Works in both light and dark modes
-- **Sample Quotes**: Ships with literary quotes to get you started
-
-## Requirements
-
-- macOS 14.0 (Sonoma) or later
-- Xcode 15.0 or later
+- Full-screen quote display over your wallpaper
+- Elegant serif typography with drop shadow
+- Automatic dark/light mode support
+- Rotates quotes every 30 minutes
+- CLI tool to manage quotes
+- Auto-starts on login
 
 ## Installation
 
-### Building from Source
+```bash
 
-1. Clone the repository:
-   ```bash
-   git clone git@github.com:valivishy/automatic-invention-quotes.git
-   cd automatic-invention-quotes
-   ```
+./scripts/install.sh
+```
 
-2. Open the Xcode project:
-   ```bash
-   open BookQuotes/BookQuotes.xcodeproj
-   ```
+The script will:
+1. Install Homebrew (if needed)
+2. Install Übersicht
+3. Symlink widget to Übersicht widgets folder
+4. Set up LaunchAgent for auto-start
+5. Launch Übersicht
 
-3. In Xcode:
-   - Select the **BookQuotes** scheme
-   - Go to **Signing & Capabilities**
-   - Select your Development Team for both targets
-   - Build and run (Cmd+R)
+## Managing Quotes
 
-### Adding the Widget
+```bash
 
-1. Run the app once to initialize sample data
-2. Right-click on your desktop
-3. Select **Edit Widgets...**
-4. Search for "Book Quotes"
-5. Drag your preferred size to the desktop
+# Add a quote
+python scripts/add-quote.py "Quote text" --author "Author" --book "Book Title"
 
-## Widget Sizes
+# Add with chapter and page
+python scripts/add-quote.py "Quote" -a "Author" -b "Book" -c "3" -p 42
 
-| Size | Content |
-|------|---------|
-| Small | Quote text only (truncated if long) |
-| Medium | Quote + book title + author |
-| Large | Full quote + book info + decorative elements |
+# List all quotes
+python scripts/add-quote.py --list
 
-## Usage
+# Delete by index
+python scripts/add-quote.py --delete 0
+```
 
-### Managing Quotes
+Or edit directly: `book-quotes.widget/quotes.json`
 
-- **Add Quote**: Click the + button in the main app
-- **Edit Quote**: Select a quote and click the pencil icon
-- **Delete Quote**: Right-click and select Delete, or use the toolbar
-- **Favorite**: Star quotes to mark as favorites
+## Quote Format
 
-### Settings
+```json
+{
+  "text": "The quote text...",
+  "author": "Author Name",
+  "book": "Book Title",
+  "chapter": "3",
+  "page": 42
+}
+```
 
-Access via **BookQuotes > Settings...** or Cmd+,
+Only `text` is required. All other fields are optional.
 
-- **Refresh Interval**: How often the widget shows a new quote
-  - 15 minutes
-  - 30 minutes
-  - 1 hour (default)
-  - 4 hours
-  - Daily
+## Configuration
+
+Edit `book-quotes.widget/index.jsx`:
+
+- **Refresh rate**: Change `refreshFrequency` (default: 30 minutes)
+- **Font size**: Modify `fontSize` in `styles.quoteText`
+- **Max width**: Adjust `maxWidth` in `styles.quoteWrapper`
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Widget not visible | Übersicht menu bar → Show All Widgets |
+| Manual refresh | Right-click anywhere → Refresh Widget |
+| View logs | `cat /tmp/uebersicht.log` |
+
+## Uninstall
+
+```bash
+
+launchctl unload ~/Library/LaunchAgents/com.tracesof.uebersicht.plist
+rm ~/Library/LaunchAgents/com.tracesof.uebersicht.plist
+rm ~/Library/Application\ Support/Übersicht/widgets/book-quotes.widget
+brew uninstall --cask ubersicht  # optional
+```
 
 ## Project Structure
 
 ```
-BookQuotes/
-├── BookQuotes/                    # Main app target
-│   ├── BookQuotesApp.swift       # App entry point
-│   ├── ContentView.swift         # Main UI
-│   └── Views/
-│       ├── QuoteEditView.swift   # Add/edit form
-│       └── SettingsView.swift    # App settings
-├── BookQuotesWidget/             # Widget extension
-│   └── BookQuotesWidget.swift    # Widget views & provider
-└── Shared/                       # Shared between targets
-    ├── Quote.swift               # Data model
-    └── QuoteStore.swift          # JSON persistence
+book-quotes/
+├── book-quotes.widget/
+│   ├── index.jsx        # Widget code (React/JSX)
+│   └── quotes.json      # Quote data
+├── scripts/
+│   ├── install.sh       # Installation script
+│   └── add-quote.py     # Quote management CLI
+└── README.md
 ```
-
-## Data Storage
-
-Quotes are stored in JSON format at:
-```
-~/Library/Group Containers/group.com.valivishy.BookQuotes/quotes.json
-```
-
-This location is shared between the main app and widget via App Groups.
 
 ## License
 
