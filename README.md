@@ -15,34 +15,35 @@ Full-screen book quotes on your macOS desktop using [Übersicht](http://tracesof
 
 ```bash
 
-./scripts/install.sh
+curl -fsSL https://raw.githubusercontent.com/valivishy/automatic-invention-quotes/master/scripts/install.sh | bash
 ```
 
 The script will:
 1. Install Homebrew (if needed)
 2. Install Übersicht
-3. Symlink widget to Übersicht widgets folder
-4. Set up LaunchAgent for auto-start
-5. Launch Übersicht
+3. Download widget to Übersicht widgets folder
+4. Install `book-quote` CLI to `~/.local/bin`
+5. Set up LaunchAgent for auto-start
+6. Launch Übersicht
 
 ## Managing Quotes
 
 ```bash
 
+# List all quotes
+book-quote --list
+
 # Add a quote
-python scripts/add-quote.py "Quote text" --author "Author" --book "Book Title"
+book-quote "Quote text" --author "Author" --book "Book Title"
 
 # Add with chapter and page
-python scripts/add-quote.py "Quote" -a "Author" -b "Book" -c "3" -p 42
-
-# List all quotes
-python scripts/add-quote.py --list
+book-quote "Quote" -a "Author" -b "Book" -c "3" -p 42
 
 # Delete by index
-python scripts/add-quote.py --delete 0
+book-quote --delete 0
 ```
 
-Or edit directly: `book-quotes.widget/quotes.json`
+Or edit directly: `~/Library/Application Support/Übersicht/widgets/book-quotes.widget/quotes.json`
 
 ## Quote Format
 
@@ -60,7 +61,7 @@ Only `text` is required. All other fields are optional.
 
 ## Configuration
 
-Edit `book-quotes.widget/index.jsx`:
+Edit `~/Library/Application Support/Übersicht/widgets/book-quotes.widget/index.jsx`:
 
 - **Refresh rate**: Change `refreshFrequency` (default: 30 minutes)
 - **Font size**: Modify `fontSize` in `styles.quoteText`
@@ -73,6 +74,7 @@ Edit `book-quotes.widget/index.jsx`:
 | Widget not visible | Übersicht menu bar → Show All Widgets |
 | Manual refresh | Right-click anywhere → Refresh Widget |
 | View logs | `cat /tmp/uebersicht.log` |
+| `book-quote` not found | Restart terminal or run `source ~/.zshrc` |
 
 ## Uninstall
 
@@ -80,21 +82,9 @@ Edit `book-quotes.widget/index.jsx`:
 
 launchctl unload ~/Library/LaunchAgents/com.tracesof.uebersicht.plist
 rm ~/Library/LaunchAgents/com.tracesof.uebersicht.plist
-rm ~/Library/Application\ Support/Übersicht/widgets/book-quotes.widget
+rm -rf ~/Library/Application\ Support/Übersicht/widgets/book-quotes.widget
+rm ~/.local/bin/book-quote
 brew uninstall --cask ubersicht  # optional
-```
-
-## Project Structure
-
-```
-book-quotes/
-├── book-quotes.widget/
-│   ├── index.jsx        # Widget code (React/JSX)
-│   └── quotes.json      # Quote data
-├── scripts/
-│   ├── install.sh       # Installation script
-│   └── add-quote.py     # Quote management CLI
-└── README.md
 ```
 
 ## License

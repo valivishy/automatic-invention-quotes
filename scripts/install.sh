@@ -1,14 +1,17 @@
 #!/bin/bash
 
+# Book Quotes Widget Installer
+# Run with: curl -fsSL https://raw.githubusercontent.com/valivishy/automatic-invention-quotes/master/scripts/install.sh | bash
+
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+REPO_URL="https://raw.githubusercontent.com/valivishy/automatic-invention-quotes/master"
 WIDGET_NAME="book-quotes.widget"
 UBERSICHT_WIDGETS_DIR="$HOME/Library/Application Support/Übersicht/widgets"
 LAUNCH_AGENT_DIR="$HOME/Library/LaunchAgents"
 LAUNCH_AGENT_PLIST="com.tracesof.uebersicht.plist"
 
+echo ""
 echo "Book Quotes Widget Installer"
 echo "============================"
 echo ""
@@ -48,21 +51,23 @@ create_widgets_dir() {
     echo "[PASS] Widgets directory exists"
 }
 
-# Install the widget (symlink)
+# Download and install the widget
 install_widget() {
-    local widget_source="$PROJECT_DIR/$WIDGET_NAME"
     local widget_dest="$UBERSICHT_WIDGETS_DIR/$WIDGET_NAME"
 
-    if [[ -L "$widget_dest" ]]; then
-        echo "[INFO] Removing existing symlink..."
-        rm "$widget_dest"
-    elif [[ -d "$widget_dest" ]]; then
-        echo "[INFO] Removing existing widget directory..."
+    # Remove existing widget
+    if [[ -L "$widget_dest" ]] || [[ -d "$widget_dest" ]]; then
+        echo "[INFO] Removing existing widget..."
         rm -rf "$widget_dest"
     fi
 
-    echo "[INFO] Creating symlink to widget..."
-    ln -s "$widget_source" "$widget_dest"
+    echo "[INFO] Downloading widget files..."
+    mkdir -p "$widget_dest"
+
+    # Download widget files from GitHub
+    curl -fsSL "$REPO_URL/book-quotes.widget/index.jsx" -o "$widget_dest/index.jsx"
+    curl -fsSL "$REPO_URL/book-quotes.widget/quotes.json" -o "$widget_dest/quotes.json"
+
     echo "[PASS] Widget installed at: $widget_dest"
 }
 
@@ -112,6 +117,34 @@ EOF
     echo "[PASS] LaunchAgent installed and loaded"
 }
 
+# Install CLI tool
+install_cli() {
+    local cli_dir="$HOME/.local/bin"
+    local cli_path="$cli_dir/book-quote"
+
+    mkdir -p "$cli_dir"
+
+    echo "[INFO] Installing CLI tool..."
+    curl -fsSL "$REPO_URL/scripts/add-quote.py" -o "$cli_path"
+    chmod +x "$cli_path"
+
+    # Check if ~/.local/bin is in PATH
+    if [[ ":$PATH:" != *":$cli_dir:"* ]]; then
+        echo "[INFO] Adding $cli_dir to PATH in shell config..."
+
+        # Detect shell and update config
+        if [[ -f "$HOME/.zshrc" ]]; then
+            echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"
+            echo "[INFO] Added to ~/.zshrc - restart terminal or run: source ~/.zshrc"
+        elif [[ -f "$HOME/.bashrc" ]]; then
+            echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+            echo "[INFO] Added to ~/.bashrc - restart terminal or run: source ~/.bashrc"
+        fi
+    fi
+
+    echo "[PASS] CLI installed at: $cli_path"
+}
+
 # Start Übersicht
 start_ubersicht() {
     if pgrep -x "Übersicht" > /dev/null; then
@@ -138,29 +171,33 @@ main() {
     create_widgets_dir
     echo ""
 
-    echo "Step 4: Installing widget..."
+    echo "Step 4: Downloading and installing widget..."
     install_widget
     echo ""
 
-    echo "Step 5: Setting up auto-start..."
+    echo "Step 5: Installing CLI tool..."
+    install_cli
+    echo ""
+
+    echo "Step 6: Setting up auto-start..."
     install_launch_agent
     echo ""
 
-    echo "Step 6: Starting Übersicht..."
+    echo "Step 7: Starting Übersicht..."
     start_ubersicht
     echo ""
 
     echo "============================"
     echo "[SUCCESS] Installation complete!"
     echo ""
-    echo "The Book Quotes widget should now be visible on your desktop."
-    echo "- Position: Bottom-right corner"
-    echo "- Refresh: Every 30 minutes"
+    echo "Your desktop now shows full-screen book quotes."
     echo ""
-    echo "Tips:"
-    echo "- Right-click the widget to manually refresh"
-    echo "- Add quotes with: python scripts/add-quote.py \"Quote text\" --author \"Name\" --book \"Title\""
-    echo "- Edit quotes directly: $UBERSICHT_WIDGETS_DIR/$WIDGET_NAME/quotes.json"
+    echo "Usage:"
+    echo "  book-quote --list                    # List all quotes"
+    echo "  book-quote \"Text\" -a \"Author\"        # Add a quote"
+    echo "  book-quote --delete 0               # Delete by index"
+    echo ""
+    echo "Quotes file: $UBERSICHT_WIDGETS_DIR/$WIDGET_NAME/quotes.json"
     echo ""
 }
 

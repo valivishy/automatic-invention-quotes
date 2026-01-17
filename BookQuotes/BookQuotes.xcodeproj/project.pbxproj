@@ -159,6 +159,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A2200001234567890ABCDEF0 /* BookQuotesWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9000002234567890ABCDEF1 /* Build configuration list for PBXNativeTarget "BookQuotesWidgetExtension" */;
+			buildPhases = (
+				A8000005234567890ABCDEF1 /* Sources */,
+				A6000002234567890ABCDEF1 /* Frameworks */,
+				A8000006234567890ABCDEF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BookQuotesWidgetExtension;
+			productName = BookQuotesWidgetExtension;
+			productReference = A2200001234567890ABCDEF1 /* BookQuotesWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A8000001234567890ABCDEF1 /* BookQuotes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9000001234567890ABCDEF1 /* Build configuration list for PBXNativeTarget "BookQuotes" */;
@@ -178,23 +195,6 @@
 			productReference = A1200001234567890ABCDEF1 /* BookQuotes.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A2200001234567890ABCDEF0 /* BookQuotesWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A9000002234567890ABCDEF1 /* Build configuration list for PBXNativeTarget "BookQuotesWidgetExtension" */;
-			buildPhases = (
-				A8000005234567890ABCDEF1 /* Sources */,
-				A6000002234567890ABCDEF1 /* Frameworks */,
-				A8000006234567890ABCDEF1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = BookQuotesWidgetExtension;
-			productName = BookQuotesWidgetExtension;
-			productReference = A2200001234567890ABCDEF1 /* BookQuotesWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,10 +205,10 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					A8000001234567890ABCDEF1 = {
+					A2200001234567890ABCDEF0 = {
 						CreatedOnToolsVersion = 15.0;
 					};
-					A2200001234567890ABCDEF0 = {
+					A8000001234567890ABCDEF1 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -410,6 +410,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BookQuotes/BookQuotes.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -438,6 +439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BookQuotes/BookQuotes.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
