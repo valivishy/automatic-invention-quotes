@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Book Quotes Widget Installer
-# Run with: curl -fsSL https://raw.githubusercontent.com/valivishy/automatic-invention-quotes/master/scripts/install.sh | bash
+# Remote: curl -fsSL https://raw.githubusercontent.com/valivishy/automatic-invention-quotes/master/scripts/install.sh | bash
+# Local:  ./scripts/install.sh --local
 
 set -e
 
@@ -10,10 +11,25 @@ WIDGET_NAME="book-quotes.widget"
 UBERSICHT_WIDGETS_DIR="$HOME/Library/Application Support/Übersicht/widgets"
 LAUNCH_AGENT_DIR="$HOME/Library/LaunchAgents"
 LAUNCH_AGENT_PLIST="com.tracesof.uebersicht.plist"
+LOCAL_MODE=false
+
+# Parse arguments
+for arg in "$@"; do
+    case $arg in
+        --local|-l)
+            LOCAL_MODE=true
+            ;;
+    esac
+done
 
 echo ""
 echo "Book Quotes Widget Installer"
 echo "============================"
+if $LOCAL_MODE; then
+    echo "Mode: Local (symlink)"
+else
+    echo "Mode: Remote (download)"
+fi
 echo ""
 
 # Check for Homebrew
@@ -51,8 +67,8 @@ create_widgets_dir() {
     echo "[PASS] Widgets directory exists"
 }
 
-# Download and install the widget
-install_widget() {
+# Download and install the widget (remote mode)
+install_widget_remote() {
     local widget_dest="$UBERSICHT_WIDGETS_DIR/$WIDGET_NAME"
 
     # Remove existing widget
@@ -69,6 +85,32 @@ install_widget() {
     curl -fsSL "$REPO_URL/book-quotes.widget/quotes.json" -o "$widget_dest/quotes.json"
 
     echo "[PASS] Widget installed at: $widget_dest"
+}
+
+# Symlink widget to local repo (local mode)
+install_widget_local() {
+    local widget_dest="$UBERSICHT_WIDGETS_DIR/$WIDGET_NAME"
+
+    # Find repo root (script is in scripts/)
+    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    local repo_root="$(dirname "$script_dir")"
+    local widget_src="$repo_root/$WIDGET_NAME"
+
+    if [[ ! -d "$widget_src" ]]; then
+        echo "[FAIL] Widget not found at: $widget_src"
+        exit 1
+    fi
+
+    # Remove existing widget
+    if [[ -L "$widget_dest" ]] || [[ -d "$widget_dest" ]]; then
+        echo "[INFO] Removing existing widget..."
+        rm -rf "$widget_dest"
+    fi
+
+    echo "[INFO] Creating symlink to local repo..."
+    ln -s "$widget_src" "$widget_dest"
+
+    echo "[PASS] Widget symlinked: $widget_dest -> $widget_src"
 }
 
 # Install LaunchAgent for auto-start
@@ -117,34 +159,6 @@ EOF
     echo "[PASS] LaunchAgent installed and loaded"
 }
 
-# Install CLI tool
-install_cli() {
-    local cli_dir="$HOME/.local/bin"
-    local cli_path="$cli_dir/book-quote"
-
-    mkdir -p "$cli_dir"
-
-    echo "[INFO] Installing CLI tool..."
-    curl -fsSL "$REPO_URL/scripts/add-quote.py" -o "$cli_path"
-    chmod +x "$cli_path"
-
-    # Check if ~/.local/bin is in PATH
-    if [[ ":$PATH:" != *":$cli_dir:"* ]]; then
-        echo "[INFO] Adding $cli_dir to PATH in shell config..."
-
-        # Detect shell and update config
-        if [[ -f "$HOME/.zshrc" ]]; then
-            echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"
-            echo "[INFO] Added to ~/.zshrc - restart terminal or run: source ~/.zshrc"
-        elif [[ -f "$HOME/.bashrc" ]]; then
-            echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
-            echo "[INFO] Added to ~/.bashrc - restart terminal or run: source ~/.bashrc"
-        fi
-    fi
-
-    echo "[PASS] CLI installed at: $cli_path"
-}
-
 # Start Übersicht
 start_ubersicht() {
     if pgrep -x "Übersicht" > /dev/null; then
@@ -171,19 +185,19 @@ main() {
     create_widgets_dir
     echo ""
 
-    echo "Step 4: Downloading and installing widget..."
-    install_widget
+    echo "Step 4: Installing widget..."
+    if $LOCAL_MODE; then
+        install_widget_local
+    else
+        install_widget_remote
+    fi
     echo ""
 
-    echo "Step 5: Installing CLI tool..."
-    install_cli
-    echo ""
-
-    echo "Step 6: Setting up auto-start..."
+    echo "Step 5: Setting up auto-start..."
     install_launch_agent
     echo ""
 
-    echo "Step 7: Starting Übersicht..."
+    echo "Step 6: Starting Übersicht..."
     start_ubersicht
     echo ""
 
@@ -192,12 +206,7 @@ main() {
     echo ""
     echo "Your desktop now shows full-screen book quotes."
     echo ""
-    echo "Usage:"
-    echo "  book-quote --list                    # List all quotes"
-    echo "  book-quote \"Text\" -a \"Author\"        # Add a quote"
-    echo "  book-quote --delete 0               # Delete by index"
-    echo ""
-    echo "Quotes file: $UBERSICHT_WIDGETS_DIR/$WIDGET_NAME/quotes.json"
+    echo "Edit quotes: $UBERSICHT_WIDGETS_DIR/$WIDGET_NAME/quotes.json"
     echo ""
 }
 
