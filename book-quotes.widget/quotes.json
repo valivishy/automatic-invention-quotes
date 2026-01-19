@@ -1,12 +1,5 @@
 [
   {
-    "text": "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    "author": "Jane Austen",
-    "book": "Pride and Prejudice",
-    "chapter": "1",
-    "page": 1
-  },
-  {
     "text": "All happy families are alike; each unhappy family is unhappy in its own way.",
     "author": "Leo Tolstoy",
     "book": "Anna Karenina",
@@ -14,16 +7,8 @@
     "page": 1
   },
   {
-    "text": "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness.",
-    "author": "Charles Dickens",
-    "book": "A Tale of Two Cities",
-    "chapter": "1",
-    "page": 1
-  },
-  {
-    "text": "The only way to do great work is to love what you do.",
-    "author": "Steve Jobs",
-    "book": "Stanford Commencement Speech"
+    "text": "One can choose to go back toward safety or forward toward growth. Growth must be chosen again and again; fear must be overcome again and again.",
+    "author": "Abraham Maslow"
   },
   {
     "text": "In the depth of winter, I finally learned that within me there lay an invincible summer.",
