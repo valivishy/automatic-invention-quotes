@@ -6,6 +6,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#111111">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>Book Quotes</title>
 <style>
   * {
@@ -107,7 +110,7 @@
 </div>
 
 <script>
-const QUOTES_URL = 'https://raw.githubusercontent.com/valivishy/automatic-invention-quotes/master/book-quotes.widget/quotes.json';
+const QUOTES_URL = 'book-quotes.widget/quotes.json';
 const ROTATE_MS = 30 * 60 * 1000;
 const STORAGE_KEY = 'bq_state';
 
@@ -185,6 +188,10 @@ async function init() {
 }
 
 init();
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
 </script>
 </body>
 </html>
