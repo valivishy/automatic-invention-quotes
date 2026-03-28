@@ -25,6 +25,7 @@ class QuoteWallpaperService : WallpaperService() {
         private val rotateMs = 30 * 60 * 1000L
         private var quotes = emptyList<Quote>()
         private var currentIndex = -1
+        private var lastRotatedAt = 0L
 
         private val bgPaint = Paint().apply { color = Color.parseColor("#111111") }
 
@@ -49,7 +50,8 @@ class QuoteWallpaperService : WallpaperService() {
 
         override fun onVisibilityChanged(visible: Boolean) {
             if (visible) {
-                draw()
+                val elapsed = System.currentTimeMillis() - lastRotatedAt
+                if (elapsed >= rotateMs) nextQuote() else draw()
                 scheduleRotation()
             } else {
                 handler.removeCallbacks(rotateRunnable)
@@ -100,6 +102,7 @@ class QuoteWallpaperService : WallpaperService() {
         private fun nextQuote() {
             if (quotes.isEmpty()) return
             currentIndex = (0 until quotes.size).random()
+            lastRotatedAt = System.currentTimeMillis()
             draw()
             scheduleRotation()
         }
