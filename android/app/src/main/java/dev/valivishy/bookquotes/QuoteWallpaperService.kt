@@ -40,12 +40,6 @@ class QuoteWallpaperService : WallpaperService() {
             textSize = 36f
         }
 
-        private val markPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor("#40FFFFFF")
-            typeface = Typeface.create("serif", Typeface.NORMAL)
-            textSize = 96f
-        }
-
         private val rotateRunnable = Runnable { nextQuote() }
 
         override fun onSurfaceCreated(holder: SurfaceHolder) {
@@ -144,7 +138,6 @@ class QuoteWallpaperService : WallpaperService() {
             val scale = w / 1080f
             quotePaint.textSize = 52f * scale
             authorPaint.textSize = 34f * scale
-            markPaint.textSize = 88f * scale
 
             // Build text layouts
             val quoteLayout = StaticLayout.Builder
@@ -161,19 +154,11 @@ class QuoteWallpaperService : WallpaperService() {
                     .build()
             } else null
 
-            val markHeight = markPaint.textSize * 0.6f
             val gap = 24f * scale
-            val totalHeight = markHeight + quoteLayout.height + gap +
-                ((authorLayout?.height?.toFloat() ?: 0f)) + markHeight
+            val totalHeight = quoteLayout.height + gap +
+                (authorLayout?.height?.toFloat() ?: 0f)
 
             var y = (h - totalHeight) / 2f
-
-            // Opening quote mark
-            canvas.save()
-            canvas.translate(w / 2f - markPaint.measureText("\u201C") / 2f, y + markHeight)
-            canvas.drawText("\u201C", 0f, 0f, markPaint)
-            canvas.restore()
-            y += markHeight + gap
 
             // Quote text
             canvas.save()
@@ -181,13 +166,6 @@ class QuoteWallpaperService : WallpaperService() {
             quoteLayout.draw(canvas)
             canvas.restore()
             y += quoteLayout.height + gap
-
-            // Closing quote mark
-            canvas.save()
-            canvas.translate(w / 2f - markPaint.measureText("\u201D") / 2f, y + markHeight * 0.5f)
-            canvas.drawText("\u201D", 0f, 0f, markPaint)
-            canvas.restore()
-            y += markHeight + gap
 
             // Author
             if (authorLayout != null) {
