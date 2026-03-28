@@ -40,12 +40,6 @@ class QuoteWallpaperService : WallpaperService() {
             textSize = 36f
         }
 
-        private val bookPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor("#99FFFFFF")
-            typeface = Typeface.create("serif", Typeface.ITALIC)
-            textSize = 28f
-        }
-
         private val markPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
             color = Color.parseColor("#40FFFFFF")
             typeface = Typeface.create("serif", Typeface.NORMAL)
@@ -104,10 +98,7 @@ class QuoteWallpaperService : WallpaperService() {
                 val obj = arr.getJSONObject(i)
                 Quote(
                     text = obj.getString("text"),
-                    author = obj.optString("author", ""),
-                    book = obj.optString("book", ""),
-                    chapter = obj.optString("chapter", ""),
-                    page = obj.optString("page", "")
+                    author = obj.optString("author", "")
                 )
             }
         }
@@ -153,7 +144,6 @@ class QuoteWallpaperService : WallpaperService() {
             val scale = w / 1080f
             quotePaint.textSize = 52f * scale
             authorPaint.textSize = 34f * scale
-            bookPaint.textSize = 26f * scale
             markPaint.textSize = 88f * scale
 
             // Build text layouts
@@ -171,19 +161,10 @@ class QuoteWallpaperService : WallpaperService() {
                     .build()
             } else null
 
-            val bookLine = buildBookLine(quote)
-            val bookLayout = if (bookLine.isNotEmpty()) {
-                StaticLayout.Builder
-                    .obtain(bookLine, 0, bookLine.length, bookPaint, textWidth)
-                    .setAlignment(Layout.Alignment.ALIGN_CENTER)
-                    .build()
-            } else null
-
             val markHeight = markPaint.textSize * 0.6f
             val gap = 24f * scale
             val totalHeight = markHeight + quoteLayout.height + gap +
-                ((authorLayout?.height?.toFloat() ?: 0f) + gap) +
-                (bookLayout?.height?.toFloat() ?: 0f) + markHeight
+                ((authorLayout?.height?.toFloat() ?: 0f)) + markHeight
 
             var y = (h - totalHeight) / 2f
 
@@ -214,37 +195,15 @@ class QuoteWallpaperService : WallpaperService() {
                 canvas.translate(padding, y)
                 authorLayout.draw(canvas)
                 canvas.restore()
-                y += authorLayout.height + gap * 0.5f
-            }
-
-            // Book info
-            if (bookLayout != null) {
-                canvas.save()
-                canvas.translate(padding, y)
-                bookLayout.draw(canvas)
-                canvas.restore()
             }
         }
 
         private fun buildAttribution(quote: Quote): String =
             if (quote.author.isNotEmpty()) "\u2014 ${quote.author}" else ""
 
-        private fun buildBookLine(quote: Quote): String {
-            val parts = mutableListOf<String>()
-            if (quote.book.isNotEmpty()) parts += quote.book
-            if (quote.chapter.isNotEmpty()) parts += "Ch. ${quote.chapter}"
-            if (quote.page.isNotEmpty()) parts += "p. ${quote.page}"
-            return parts.joinToString(", ")
-        }
     }
 
-    data class Quote(
-        val text: String,
-        val author: String,
-        val book: String,
-        val chapter: String,
-        val page: String
-    )
+    data class Quote(val text: String, val author: String)
 
     companion object {
         private const val QUOTES_URL =
