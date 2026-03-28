@@ -9,3 +9,6 @@
 # Python
 __pycache__/
 *.pyc
+android/app/build/
+.gradle/
+local.properties
