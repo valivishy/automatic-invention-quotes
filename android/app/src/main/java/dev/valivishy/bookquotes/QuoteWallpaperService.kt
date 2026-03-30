@@ -64,7 +64,6 @@ class QuoteWallpaperService : WallpaperService() {
         }
 
         private fun loadQuotes() {
-            // Try cached first
             val prefs = applicationContext.getSharedPreferences("bq", MODE_PRIVATE)
             val cached = prefs.getString("quotes_json", null)
             if (cached != null) {
@@ -72,13 +71,20 @@ class QuoteWallpaperService : WallpaperService() {
                 nextQuote()
             }
 
-            // Fetch fresh in background
+            val lastFetch = prefs.getLong("last_fetch_at", 0L)
+            val stale = System.currentTimeMillis() - lastFetch >= FETCH_INTERVAL_MS
+
+            if (!stale && quotes.isNotEmpty()) return
+
             thread {
                 try {
                     val json = URL(QUOTES_URL).readText()
                     val parsed = parseQuotes(json)
                     if (parsed.isNotEmpty()) {
-                        prefs.edit().putString("quotes_json", json).apply()
+                        prefs.edit()
+                            .putString("quotes_json", json)
+                            .putLong("last_fetch_at", System.currentTimeMillis())
+                            .apply()
                         quotes = parsed
                         if (currentIndex < 0) handler.post { nextQuote() }
                     }
@@ -189,5 +195,6 @@ class QuoteWallpaperService : WallpaperService() {
     companion object {
         private const val QUOTES_URL =
             "https://raw.githubusercontent.com/valivishy/automatic-invention-quotes/master/book-quotes.widget/quotes.json"
+        private const val FETCH_INTERVAL_MS = 24 * 60 * 60 * 1000L
     }
 }
