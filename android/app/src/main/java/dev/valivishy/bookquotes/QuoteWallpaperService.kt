@@ -80,31 +80,35 @@ class QuoteWallpaperService : WallpaperService() {
 
             val lastFetch = prefs.getLong("last_fetch_at", 0L)
             val stale = System.currentTimeMillis() - lastFetch >= FETCH_INTERVAL_MS
+            if (stale || quotes.isEmpty()) fetchAndUpdate()
+        }
 
-            if (!stale && quotes.isNotEmpty()) return
-
+        // Pulls quotes.json, compares hash, persists state. Called from loadQuotes
+        // (on engine start) and nextQuote (every rotation tick) so the 30-min
+        // rotation cadence doubles as the refetch cadence.
+        private fun fetchAndUpdate() {
             thread {
                 try {
                     val json = URL(QUOTES_URL).readText()
                     val parsed = parseQuotes(json)
-                    if (parsed.isNotEmpty()) {
-                        val newHash = fnv1a32(json)
-                        val oldHash = prefs.getString("quotes_hash", null)
-                        val poolChanged = newHash != oldHash
-                        val editor = prefs.edit()
-                            .putString("quotes_json", json)
-                            .putString("quotes_hash", newHash)
-                            .putLong("last_fetch_at", System.currentTimeMillis())
-                        if (poolChanged) editor.putInt("current_index", 0)
-                        editor.apply()
-                        quotes = parsed
-                        if (poolChanged || currentIndex < 0) {
-                            currentIndex = 0
-                            handler.post {
-                                lastRotatedAt = System.currentTimeMillis()
-                                draw()
-                                scheduleRotation()
-                            }
+                    if (parsed.isEmpty()) return@thread
+                    val prefs = applicationContext.getSharedPreferences("bq", MODE_PRIVATE)
+                    val newHash = fnv1a32(json)
+                    val oldHash = prefs.getString("quotes_hash", null)
+                    val poolChanged = newHash != oldHash
+                    val editor = prefs.edit()
+                        .putString("quotes_json", json)
+                        .putString("quotes_hash", newHash)
+                        .putLong("last_fetch_at", System.currentTimeMillis())
+                    if (poolChanged) editor.putInt("current_index", 0)
+                    editor.apply()
+                    quotes = parsed
+                    if (poolChanged || currentIndex < 0) {
+                        currentIndex = 0
+                        handler.post {
+                            lastRotatedAt = System.currentTimeMillis()
+                            draw()
+                            scheduleRotation()
                         }
                     }
                 } catch (_: Exception) {
@@ -136,6 +140,9 @@ class QuoteWallpaperService : WallpaperService() {
             lastRotatedAt = System.currentTimeMillis()
             draw()
             scheduleRotation()
+            // Opportunistic refetch — piggybacks on the 30-min rotation tick so
+            // the refetch cadence matches the rotate cadence without a separate timer.
+            fetchAndUpdate()
         }
 
         private fun scheduleRotation() {
@@ -220,7 +227,9 @@ class QuoteWallpaperService : WallpaperService() {
     companion object {
         private const val QUOTES_URL =
             "https://raw.githubusercontent.com/valivishy/automatic-invention-quotes/master/book-quotes.widget/quotes.json"
-        private const val FETCH_INTERVAL_MS = 24 * 60 * 60 * 1000L
+        // TOOLING-26 post-merge: aligned with 30-min rotation cadence so a new
+        // scramble surfaces within one rotation interval instead of up to 24h.
+        private const val FETCH_INTERVAL_MS = 30 * 60 * 1000L
 
         // 32-bit FNV-1a over UTF-8 bytes — TOOLING-26-01 change-detection fingerprint.
         // Offset basis 0x811c9dc5 overflows Int — use Long literal then truncate.
