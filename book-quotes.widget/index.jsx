@@ -11,22 +11,47 @@ const quotesPath = "book-quotes.widget/quotes.json";
 
 export const command = `cat "$HOME/Library/Application Support/Übersicht/widgets/${quotesPath}"`;
 
-// Parse the quotes and select a random one
+// 32-bit FNV-1a over UTF-8 bytes — change-detection fingerprint for quotes.json.
+// Spec TOOLING-26-01: each consumer compares its own current hash against its own
+// stored hash; cross-consumer agreement is incidental.
+function fnv1a32(str) {
+  const bytes = new TextEncoder().encode(str);
+  let h = 0x811c9dc5 >>> 0;
+  for (let i = 0; i < bytes.length; i++) {
+    h ^= bytes[i];
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, "0");
+}
+
+// Hash-guarded sequential iteration (TOOLING-26-01):
+// hash change (new scramble) → reset to index 0; hash same → advance (wrap at end).
+// No client-side randomization — order on disk IS the display order.
 export const updateState = (event, previousState) => {
   if (event.error) {
-    return { error: event.error };
+    return { ...(previousState || {}), error: event.error };
   }
 
   try {
     const quotes = JSON.parse(event.output);
     if (!quotes || quotes.length === 0) {
-      return { error: "No quotes available" };
+      return { ...(previousState || {}), error: "No quotes available" };
     }
 
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    return { quote: quotes[randomIndex], error: null };
+    const hash = fnv1a32(event.output);
+    const prev = previousState || {};
+    const currentIndex = prev.quotesHash === hash
+      ? ((prev.currentIndex || 0) + 1) % quotes.length
+      : 0;
+
+    return {
+      quote: quotes[currentIndex],
+      quotesHash: hash,
+      currentIndex,
+      error: null,
+    };
   } catch (e) {
-    return { error: `Failed to parse quotes: ${e.message}` };
+    return { ...(previousState || {}), error: `Failed to parse quotes: ${e.message}` };
   }
 };
 
@@ -34,6 +59,8 @@ export const updateState = (event, previousState) => {
 export const initialState = {
   quote: null,
   error: null,
+  quotesHash: null,
+  currentIndex: 0,
 };
 
 // Full-screen widget styling

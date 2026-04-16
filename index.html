@@ -112,7 +112,50 @@
 <script>
 const QUOTES_URL = 'book-quotes.widget/quotes.json';
 const ROTATE_MS = 30 * 60 * 1000;
-const STORAGE_KEY = 'bq_state';
+const STATE_KEY = 'bq_state_v2';
+
+// 32-bit FNV-1a over UTF-8 bytes — TOOLING-26-01 change-detection fingerprint.
+function fnv1a32(str) {
+  const bytes = new TextEncoder().encode(str);
+  let h = 0x811c9dc5 >>> 0;
+  for (let i = 0; i < bytes.length; i++) {
+    h ^= bytes[i];
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, '0');
+}
+
+function loadState() {
+  try {
+    const s = JSON.parse(localStorage.getItem(STATE_KEY));
+    if (s && typeof s.hash === 'string' && typeof s.idx === 'number') return s;
+  } catch (_) {}
+  return { hash: null, idx: 0 };
+}
+
+function saveState(state) {
+  localStorage.setItem(STATE_KEY, JSON.stringify(state));
+}
+
+// On first render of the page: resume at stored idx if hash unchanged; otherwise idx 0.
+function initialIndex(quotes, text) {
+  const hash = fnv1a32(text);
+  const prev = loadState();
+  if (prev.hash !== hash) {
+    saveState({ hash: hash, idx: 0 });
+    return 0;
+  }
+  return prev.idx < quotes.length ? prev.idx : 0;
+}
+
+// On each rotation tick: advance idx (or reset to 0 if the pool just changed).
+function nextIndex(quotes, text) {
+  const hash = fnv1a32(text);
+  const prev = loadState();
+  const idx = prev.hash === hash ? (prev.idx + 1) % quotes.length : 0;
+  saveState({ hash: hash, idx: idx });
+  return idx;
+}
 
 function renderQuote(quote) {
   const wrapper = document.getElementById('quote');
@@ -137,54 +180,51 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-function pickQuote(quotes) {
-  const now = Date.now();
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (saved && (now - saved.ts) < ROTATE_MS && saved.idx < quotes.length) {
-      return saved.idx;
-    }
-  } catch (_) {}
-
-  const idx = Math.floor(Math.random() * quotes.length);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ idx: idx, ts: now }));
-  return idx;
-}
-
-function rotateQuote(quotes) {
+function rotateQuote(quotes, text) {
   const wrapper = document.getElementById('quote');
   wrapper.classList.add('fade-out');
-
   setTimeout(function() {
-    const idx = Math.floor(Math.random() * quotes.length);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ idx: idx, ts: Date.now() }));
-    renderQuote(quotes[idx]);
+    renderQuote(quotes[nextIndex(quotes, text)]);
     wrapper.classList.remove('fade-out');
   }, 600);
 }
 
+async function fetchQuotes() {
+  // cache: 'no-store' bypasses the browser HTTP cache so the hash check sees
+  // fresh bytes when online. The service worker still populates its Cache Storage
+  // on successful responses, providing offline fallback via sw.js's fetch handler.
+  const res = await fetch(QUOTES_URL, { cache: 'no-store' });
+  const text = await res.text();
+  return { text: text, quotes: JSON.parse(text) };
+}
+
 async function init() {
-  let quotes;
-
+  let loaded;
   try {
-    const res = await fetch(QUOTES_URL);
-    quotes = await res.json();
-    localStorage.setItem('bq_quotes', JSON.stringify(quotes));
+    loaded = await fetchQuotes();
   } catch (_) {
-    try {
-      quotes = JSON.parse(localStorage.getItem('bq_quotes'));
-    } catch (__) {}
-  }
-
-  if (!quotes || quotes.length === 0) {
     document.getElementById('quote').innerHTML = '<p class="error">Could not load quotes.</p>';
     return;
   }
 
-  const idx = pickQuote(quotes);
-  renderQuote(quotes[idx]);
+  if (!loaded.quotes || loaded.quotes.length === 0) {
+    document.getElementById('quote').innerHTML = '<p class="error">No quotes available.</p>';
+    return;
+  }
 
-  setInterval(function() { rotateQuote(quotes); }, ROTATE_MS);
+  renderQuote(loaded.quotes[initialIndex(loaded.quotes, loaded.text)]);
+
+  // Re-fetch on every rotation so hash-check picks up scrambles without page reload.
+  setInterval(async function() {
+    try {
+      const fresh = await fetchQuotes();
+      if (fresh.quotes && fresh.quotes.length > 0) {
+        rotateQuote(fresh.quotes, fresh.text);
+      }
+    } catch (_) {
+      // offline — skip this rotation; keep the currently-displayed quote.
+    }
+  }, ROTATE_MS);
 }
 
 init();

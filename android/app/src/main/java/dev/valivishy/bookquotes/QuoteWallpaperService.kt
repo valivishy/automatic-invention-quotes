@@ -68,7 +68,14 @@ class QuoteWallpaperService : WallpaperService() {
             val cached = prefs.getString("quotes_json", null)
             if (cached != null) {
                 quotes = parseQuotes(cached)
-                nextQuote()
+                if (quotes.isNotEmpty()) {
+                    // TOOLING-26-01: resume at stored index (instead of random).
+                    currentIndex = prefs.getInt("current_index", 0)
+                        .coerceIn(0, quotes.size - 1)
+                    lastRotatedAt = System.currentTimeMillis()
+                    draw()
+                    scheduleRotation()
+                }
             }
 
             val lastFetch = prefs.getLong("last_fetch_at", 0L)
@@ -81,12 +88,24 @@ class QuoteWallpaperService : WallpaperService() {
                     val json = URL(QUOTES_URL).readText()
                     val parsed = parseQuotes(json)
                     if (parsed.isNotEmpty()) {
-                        prefs.edit()
+                        val newHash = fnv1a32(json)
+                        val oldHash = prefs.getString("quotes_hash", null)
+                        val poolChanged = newHash != oldHash
+                        val editor = prefs.edit()
                             .putString("quotes_json", json)
+                            .putString("quotes_hash", newHash)
                             .putLong("last_fetch_at", System.currentTimeMillis())
-                            .apply()
+                        if (poolChanged) editor.putInt("current_index", 0)
+                        editor.apply()
                         quotes = parsed
-                        if (currentIndex < 0) handler.post { nextQuote() }
+                        if (poolChanged || currentIndex < 0) {
+                            currentIndex = 0
+                            handler.post {
+                                lastRotatedAt = System.currentTimeMillis()
+                                draw()
+                                scheduleRotation()
+                            }
+                        }
                     }
                 } catch (_: Exception) {
                     if (quotes.isEmpty()) handler.post { draw() }
@@ -107,7 +126,13 @@ class QuoteWallpaperService : WallpaperService() {
 
         private fun nextQuote() {
             if (quotes.isEmpty()) return
-            currentIndex = (0 until quotes.size).random()
+            // TOOLING-26-01: advance sequentially with wraparound; scrambling
+            // happens once at write time in the /add-quotes skill, not per tick.
+            currentIndex = if (currentIndex < 0) 0 else (currentIndex + 1) % quotes.size
+            applicationContext.getSharedPreferences("bq", MODE_PRIVATE)
+                .edit()
+                .putInt("current_index", currentIndex)
+                .apply()
             lastRotatedAt = System.currentTimeMillis()
             draw()
             scheduleRotation()
@@ -196,5 +221,16 @@ class QuoteWallpaperService : WallpaperService() {
         private const val QUOTES_URL =
             "https://raw.githubusercontent.com/valivishy/automatic-invention-quotes/master/book-quotes.widget/quotes.json"
         private const val FETCH_INTERVAL_MS = 24 * 60 * 60 * 1000L
+
+        // 32-bit FNV-1a over UTF-8 bytes — TOOLING-26-01 change-detection fingerprint.
+        // Offset basis 0x811c9dc5 overflows Int — use Long literal then truncate.
+        private fun fnv1a32(input: String): String {
+            var h = 0x811c9dc5L.toInt()
+            for (b in input.toByteArray(Charsets.UTF_8)) {
+                h = h xor (b.toInt() and 0xff)
+                h *= 0x01000193
+            }
+            return "%08x".format(h)
+        }
     }
 }
