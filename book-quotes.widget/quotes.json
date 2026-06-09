@@ -1,11 +1,281 @@
 [
   {
-    "text": "Questions are answered as you move, not before you move. Moving forward with an answer that is partially correct will usually fill in the gaps faster than waiting until you come up with a plan that is perfectly correct.",
+    "text": "You aren't wealthy until you have something money can't buy.",
+    "author": "Garth Brooks"
+  },
+  {
+    "text": "We can change only as fast as the rest of society will change.",
+    "author": "Michael Moritz"
+  },
+  {
+    "text": "The miracle is not to walk on water. The miracle is to walk on the green earth in the present moment, to appreciate the peace and beauty that are available now.",
+    "author": "Thich Nhat Hanh"
+  },
+  {
+    "text": "The universe is wider than our views of it.",
+    "author": "Henry David Thoreau"
+  },
+  {
+    "text": "Character consists of what you do on the third and fourth tries.",
+    "author": "James Michener"
+  },
+  {
+    "text": "In wisdom gathered over time I have found that every experience is a form of exploration.",
+    "author": "Aldous Huxley"
+  },
+  {
+    "text": "If you want real control, drop the illusion of control; let life have you. It does anyway. You're just telling yourself the story of how it doesn't.",
+    "author": "Byron Katie"
+  },
+  {
+    "text": "Incredible things can be done simply if we are committed to making them happen.",
+    "author": "Sadhguru"
+  },
+  {
+    "text": "When I argue with reality, I lose, but only 100% of the time.",
+    "author": "Byron Katie"
+  },
+  {
+    "text": "Be able to be alone. Lose not the advantage of solitude, and the society of thyself.",
+    "author": "Thomas Browne"
+  },
+  {
+    "text": "Greatness is overrated. It's a form of extremism, and it comes with extreme vices that I have no interest in.",
+    "author": "Kevin Kelly"
+  },
+  {
+    "text": "We don't receive wisdom; we must discover it for ourselves after a journey that no one can take for us or spare us.",
+    "author": "Marcel Proust"
+  },
+  {
+    "text": "Where I was born and where and how I have lived is unimportant. It is what I have done with where I have been that should be of interest.",
+    "author": "Georgia O’Keeffe"
+  },
+  {
+    "text": "The task we must set for ourselves is not to feel secure, but to be able to tolerate insecurity.",
+    "author": "Erich Fromm"
+  },
+  {
+    "text": "Foolishness is a twin sister of wisdom.",
+    "author": "Witold Gombrowicz"
+  },
+  {
+    "text": "Few men think; yet all have opinions.",
+    "author": "George Berkeley"
+  },
+  {
+    "text": "Enlightenment is always preceded by confusion.",
+    "author": "Milton Erickson"
+  },
+  {
+    "text": "The years teach much which the days never know.",
+    "author": "Ralph Waldo Emerson"
+  },
+  {
+    "text": "Flowers fall even though we love them, and weeds grow even though we dislike them.",
+    "author": "Dōgen Zenji"
+  },
+  {
+    "text": "Guarding your time isn't rude; it's how you get stuff done. Letting a meeting go on longer than necessary is nice to them, but unkind to yourself. Nice is what people want from you. Kindness is what you owe yourself.",
+    "author": "Shane Parrish"
+  },
+  {
+    "text": "No emotion, any more than a wave, can long retain its own individual form.",
+    "author": "Henry Ward Beecher"
+  },
+  {
+    "text": "Awe is the moment when ego surrenders to wonder.",
+    "author": "Terry Tempest Williams"
+  },
+  {
+    "text": "Don't you want to be alive before you die?",
+    "author": "Anthony Doerr"
+  },
+  {
+    "text": "The unexamined life is not worth living.",
+    "author": "Socrates",
+    "book": "Apology (Plato)"
+  },
+  {
+    "text": "Figuring out what you don't know or aren't sure of is the greatest intellectual skill of all.",
+    "author": "John Holt"
+  },
+  {
+    "text": "We have first raised a dust and then complain we cannot see.",
+    "author": "George Berkeley"
+  },
+  {
+    "text": "Do not be angry with the rain; it simply does not know how to fall upwards.",
+    "author": "Vladimir Nabokov"
+  },
+  {
+    "text": "It is an unwritten rule of life that after every prolonged period of hardship and uncertainty, there is going to be a period when you are going to achieve quantum leaps across multiple areas of your life. The only requirement is that you do not give up on yourself.",
+    "author": "BeautyOfSaas"
+  },
+  {
+    "text": "One does what one is; one becomes what one does.",
+    "author": "Robert Musil"
+  },
+  {
+    "text": "Sitting quietly, doing nothing, spring comes, and the grass grows, by itself.",
+    "author": "Matsuo Basho"
+  },
+  {
+    "text": "When we are no longer able to change a situation, we are challenged to change ourselves.",
+    "author": "Victor Frankl"
+  },
+  {
+    "text": "Never be so focused on what you are looking for that you overlook the thing you actually find.",
+    "author": "Ann Patchett"
+  },
+  {
+    "text": "Many paths lead from the foot of the mountain, but at the peak we all gaze at the single bright moon.",
+    "author": "Ikkyu"
+  },
+  {
+    "text": "Someone I loved once gave me a box full of darkness. It took me years to understand that this, too, was a gift.",
+    "author": "Mary Oliver"
+  },
+  {
+    "text": "Now is simply now. You are simply you. And tell me, since you want to leave the place where you are, where is it exactly you want to go?",
+    "author": "Kodo Sawaki"
+  },
+  {
+    "text": "At each increase of knowledge, as well as on the contrivance of every new tool, human labour becomes abridged.",
+    "author": "Charles Babbage"
+  },
+  {
+    "text": "Out of the night that covers me,\nBlack as the pit from pole to pole,\nI thank whatever gods may be\nFor my unconquerable soul.\n\nIn the fell clutch of circumstance\nI have not winced nor cried aloud.\nUnder the bludgeonings of chance\nMy head is bloody, but unbowed.\n\nBeyond this place of wrath and tears\nLooms but the Horror of the shade,\nAnd yet the menace of the years\nFinds and shall find me unafraid.\n\nIt matters not how strait the gate,\nHow charged with punishments the scroll,\nI am the master of my fate,\nI am the captain of my soul.",
+    "author": "William Ernest Henley",
+    "book": "Invictus"
+  },
+  {
+    "text": "You can’t define a person. You can’t sum anyone up. Life is non-summative—it is infinite.",
+    "author": "James Low"
+  },
+  {
+    "text": "It is better to solve one problem five different ways, than to solve five problems one way.",
+    "author": "George Pólya"
+  },
+  {
+    "text": "If we are ever in doubt what to do, it is a good rule to ask ourselves what we shall wish on the morrow that we had done.",
+    "author": "John Lubbock"
+  },
+  {
+    "text": "See how letting go of the world is peaceful. There's nothing you need to hold on to. There's nothing you need to push away.",
+    "author": "Buddha"
+  },
+  {
+    "text": "Wisdom is oftentimes nearer when we stoop than when we soar.",
+    "author": "William Wordsworth"
+  },
+  {
+    "text": "In most of our human relationships, we spend much of our time reassuring one another that our costumes of identity are on straight.",
+    "author": "Ram Dass"
+  },
+  {
+    "text": "No job is too small. No task is below you.",
+    "author": "Harrison McCain"
+  },
+  {
+    "text": "A good life is one in which things do not go perfectly, but you find a way to have a good day regardless.",
     "author": "James Clear"
+  },
+  {
+    "text": "Anything you have imposed on yourself to be unhappy is a concept. So, give it away.",
+    "author": "W. H. L. Poonja"
+  },
+  {
+    "text": "Whatever inspiration is, it’s born from a continuous \"I don’t know.\"",
+    "author": "Wisława Szymborska"
+  },
+  {
+    "text": "Survival is the ability to swim in strange water.",
+    "author": "Frank Herbert"
+  },
+  {
+    "text": "Convictions are more dangerous enemies of truth than lies.",
+    "author": "Friedrich Nietzsche"
   },
   {
     "text": "It doesn't matter what others do, unless you decide that it matters to you.",
     "author": "Michael A. Singer"
+  },
+  {
+    "text": "When you stop expecting people to be perfect, you can like them for who they are.",
+    "author": "Donald Miller"
+  },
+  {
+    "text": "Life changes in the instant. The ordinary instant.",
+    "author": "Joan Didion"
+  },
+  {
+    "text": "So much has been given to me I have not the time to ponder that which has been denied.",
+    "author": "Helen Keller"
+  },
+  {
+    "text": "Success is something you attract by the person you become.",
+    "author": "Jim Rohn"
+  },
+  {
+    "text": "Fear and ego—in other words, ignorance—are keeping your hand on the tiller. Release the tiller for whatever reason, and the steering takes care of itself.",
+    "author": "Jed McKenna"
+  },
+  {
+    "text": "No faith that is not surrounded by doubt can survive.",
+    "author": "Elias Canetti"
+  },
+  {
+    "text": "I have learned silence from the talkative, toleration from the intolerant, and kindness from the unkind; yet strange, I am ungrateful to these teachers.",
+    "author": "Kahlil Gibran"
+  },
+  {
+    "text": "When you are sorrowful look again in your heart, and you shall see that in truth you are weeping for that which has been your delight.",
+    "author": "Kahlil Gibran"
+  },
+  {
+    "text": "Errors using inadequate data are much less than those using no data at all.",
+    "author": "Charles Babbage"
+  },
+  {
+    "text": "In times of change, learners inherit the earth, while the learned find themselves beautifully equipped to deal with a world that no longer exists.",
+    "author": "Eric Hoffer"
+  },
+  {
+    "text": "Gratitude is the intention to count your blessings every day, while avoiding, whenever possible, the belief that you need or deserve different circumstances.",
+    "author": "Timothy Miller"
+  },
+  {
+    "text": "He who makes no mistakes makes no progress.",
+    "author": "Teddy Roosevelt"
+  },
+  {
+    "text": "True security lies in the unrestrained embrace of insecurity—in the recognition that we never really stand on solid ground, and never can.",
+    "author": "Oliver Burkeman"
+  },
+  {
+    "text": "Be able to be alone. Lose not the advantage of solitude, and the society of thyself.",
+    "author": "Thomas Browne"
+  },
+  {
+    "text": "The Universe began when Nothing saw itself in the mirror.",
+    "author": "Tor Nørretranders"
+  },
+  {
+    "text": "Fear is a manipulative emotion that can trick us into living a boring life.",
+    "author": "Donald Miller"
+  },
+  {
+    "text": "You have to do nothing to be who you are. Nothing at all.",
+    "author": "H. W. L. Poonja"
+  },
+  {
+    "text": "The surest sign of wisdom is continual cheerfulness.",
+    "author": "Michel de Montaigne"
+  },
+  {
+    "text": "Most people self-limit their ability to learn. Just read books and talk to people. I didn't study rocket engineering, I picked it up along the way.",
+    "author": "Elon Musk"
   },
   {
     "text": "He who jumps into the void owes no explanation to those who stand and watch.",
@@ -16,17 +286,16 @@
     "author": "James Clear"
   },
   {
-    "text": "Love is the quality of attention we pay to things.",
-    "author": "J. D. McClatchy"
+    "text": "As something, I am merely that thing. As no-thing, I am all things.",
+    "author": "Douglas Harding"
   },
   {
-    "text": "The unexamined life is not worth living.",
-    "author": "Socrates",
-    "book": "Apology (Plato)"
+    "text": "The modern world is optimized for convenience, not improvement.\n\nThe default path is usually the more convenient path. And I get it. Who wants their days to be a pain in the neck? I like sitting in air-conditioned rooms and watching my favorite shows too.\n\nBut the body and mind only grow when placed under a stimulus. If you want improvement, you have to choose something different than convenience.\n\nIt can be lovely to have a day where you do not push yourself, but it rarely works out well if you have a life where you do not push yourself.",
+    "author": "James Clear"
   },
   {
-    "text": "Always remember that you are absolutely unique. Just like everyone else.",
-    "author": "Margaret Mead"
+    "text": "Do not wish for an easy life. Wish for the strength to endure a difficult one.",
+    "author": "Bruce Lee"
   },
   {
     "text": "He who has a why to live can bear almost any how.",
@@ -34,60 +303,213 @@
     "book": "Twilight of the Idols"
   },
   {
-    "text": "Never be so focused on what you are looking for that you overlook the thing you actually find.",
-    "author": "Ann Patchett"
+    "text": "As you think, so shall you become.",
+    "author": "Bruce Lee"
   },
   {
-    "text": "Where I was born and where and how I have lived is unimportant. It is what I have done with where I have been that should be of interest.",
-    "author": "Georgia O’Keeffe"
-  },
-  {
-    "text": "Sitting quietly, doing nothing, spring comes, and the grass grows, by itself.",
-    "author": "Matsuo Basho"
-  },
-  {
-    "text": "Someone I loved once gave me a box full of darkness. It took me years to understand that this, too, was a gift.",
-    "author": "Mary Oliver"
-  },
-  {
-    "text": "I think the notion of retirement is just a dreadful, dreadful idea and I hope I never have to do that.",
-    "author": "Michael Moritz"
-  },
-  {
-    "text": "You shouldn’t worry about criticism from someone that you would never ask advice from.",
-    "author": "Brian Halligan"
-  },
-  {
-    "text": "If intelligence is getting what you want, wisdom is wanting what's worth getting in the first place.",
-    "author": "Shane Parrish"
-  },
-  {
-    "text": "Foolishness is a twin sister of wisdom.",
+    "text": "Man is profoundly dependent on the reflection of himself in another man's soul, be it even the soul of an idiot.",
     "author": "Witold Gombrowicz"
   },
   {
-    "text": "Don't you want to be alive before you die?",
+    "text": "Follow your heart but take your brain with you.",
+    "author": "Alfred Adler"
+  },
+  {
+    "text": "Beyond a wholesome discipline, be gentle with yourself. You are a child of the universe no less than the trees and the stars; you have a right to be here.",
+    "author": "Max Ehrmann",
+    "book": "Desiderata"
+  },
+  {
+    "text": "The art of life is to know how to enjoy a little and to endure very much.",
+    "author": "William Hazlitt"
+  },
+  {
+    "text": "A real diamond, his father used to say, is never entirely free of inclusions. A real diamond is never perfect.",
     "author": "Anthony Doerr"
+  },
+  {
+    "text": "Children must be taught how to think, not what to think.",
+    "author": "Margaret Mead"
+  },
+  {
+    "text": "Change will lead to insight far more often than insight will lead to change.",
+    "author": "Milton Erickson"
+  },
+  {
+    "text": "One of my favorite lessons I’ve learnt from working with smart people:\n\nAction produces information. If you’re unsure of what to do, just do anything, even if it’s the wrong thing. This will give you information about what you should actually be doing.\n\nSounds simple on the surface - the hard part is making it part of your every day working process.",
+    "author": "Brian Armstrong"
+  },
+  {
+    "text": "To a very great degree, school is a place where children learn to be stupid.",
+    "author": "John Holt"
   },
   {
     "text": "The surest sign of wisdom is continual cheerfulness.",
     "author": "Michel de Montaigne"
   },
   {
-    "text": "The truth does not change based on our ability to stomach it.",
-    "author": "Flannery o'Connor"
+    "text": "Knowing your own darkness is the best method for dealing with the darknesses of other people.",
+    "author": "Carl Jung"
   },
   {
-    "text": "Be able to be alone. Lose not the advantage of solitude, and the society of thyself.",
-    "author": "Thomas Browne"
+    "text": "It is amazing what you can accomplish if you do not care who gets the credit.",
+    "author": "Harry S. Truman"
   },
   {
-    "text": "The urge to save humanity is almost always only a false-face for the urge to rule it.",
-    "author": "H. L. Mencken"
+    "text": "The curious paradox is that when I accept myself just as I am, then I can change.",
+    "author": "Carl Rogers"
+  },
+  {
+    "text": "And what importance do I have in the courtroom of oblivion?",
+    "author": "Pablo Neruda"
+  },
+  {
+    "text": "Words define us, they explain us, and, on occasion, they serve to control or isolate us.",
+    "author": "Pip Williams"
+  },
+  {
+    "text": "Life is a process of becoming, a combination of states we have to go through. Where people fail is that they wish to elect a state and remain in it. This is a kind of death.",
+    "author": "Anaïs Nin"
+  },
+  {
+    "text": "It's one thing to get what you want. But it's another thing to want what's worth getting.",
+    "author": "Shane Parrish"
+  },
+  {
+    "text": "You don't have a right to the cards you believe you should have been dealt with. You have an obligation to play the hell out of the ones you're holding.",
+    "author": "Cheryl Strayed"
+  },
+  {
+    "text": "Do you think I count the days ? There is only one day left, always starting over. It is given to us at dawn and taken away from us at dusk.",
+    "author": "Jean-Paul Sartre"
+  },
+  {
+    "text": "It is easier to fight for one’s principles than to live up to them.",
+    "author": "Alfred Adler"
+  },
+  {
+    "text": "The homemaker has the ultimate career. All other careers exist for one purpose only - and that is to support the ultimate career.",
+    "author": "C. S. Lewis"
+  },
+  {
+    "text": "The only way to make sense out of change is to plunge into it, move with it, and join the dance.",
+    "author": "Alan Watts"
+  },
+  {
+    "text": "The truth is not a crystal that can be slipped into one's pocket, but an endless current into which one falls headlong.",
+    "author": "Robert Musil"
+  },
+  {
+    "text": "Don't get bored with peace. Be in it. Go deeper into it. Look between the thoughts.",
+    "author": "Nisargadatta Maharaj"
+  },
+  {
+    "text": "If you want to ruin your life, spend it trying to change your spouse's behaviour.",
+    "author": "Charlie Munger"
+  },
+  {
+    "text": "Questions are answered as you move, not before you move. Moving forward with an answer that is partially correct will usually fill in the gaps faster than waiting until you come up with a plan that is perfectly correct.",
+    "author": "James Clear"
+  },
+  {
+    "text": "The worst lesson that can be taught to a man is to rely upon others and to whine over his sufferings.",
+    "author": "Teddy Roosevelt"
+  },
+  {
+    "text": "In my whole life, I have known no wise people (over a broad subject matter area) who didn’t read all the time—none, zero.",
+    "author": "Charlie Munger"
+  },
+  {
+    "text": "Nothing diminishes anxiety faster than action.",
+    "author": "Walter Anderson"
+  },
+  {
+    "text": "For both ruin and recovery are from within.",
+    "author": "Epictetus"
+  },
+  {
+    "text": "It’s no use going back to yesterday, because I was a different person then.",
+    "author": "Lewis Carroll"
+  },
+  {
+    "text": "How often in life we complete a task that was beyond the capability of the person who we were when we started it.",
+    "author": "Robert Brault"
+  },
+  {
+    "text": "Just set one day’s work in front of the last day’s work. That’s the way it comes out. And that’s the only way it does.",
+    "author": "John Steinbeck"
+  },
+  {
+    "text": "My mission is to celebrate higher things, and that is why God gave me speech and a grateful heart.",
+    "author": "Hölderlin"
+  },
+  {
+    "text": "I think the notion of retirement is just a dreadful, dreadful idea and I hope I never have to do that.",
+    "author": "Michael Moritz"
+  },
+  {
+    "text": "One can choose to go back toward safety or forward toward growth. Growth must be chosen again and again; fear must be overcome again and again.",
+    "author": "Abraham Maslow"
+  },
+  {
+    "text": "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.",
+    "author": "Marcel Proust"
+  },
+  {
+    "text": "Beware the barrenness of a busy life.",
+    "author": "Socrates"
+  },
+  {
+    "text": "I am not a thing in the world; I am the space in which the world is happening.",
+    "author": "Richard Lang"
+  },
+  {
+    "text": "Rudeness is the weak man’s imitation of strength.",
+    "author": "Eric Hoffer"
+  },
+  {
+    "text": "Life is an experimental journey undertaken involuntarily.",
+    "author": "Fernando Pessoa"
+  },
+  {
+    "text": "The maxim 'Nothing avails but perfection' may be spelt shorter: 'Paralysis.'",
+    "author": "Winston Churchill"
+  },
+  {
+    "text": "Wisdom tends to grow in proportion to one's awareness of one's ignorance.",
+    "author": "Anthony De Mello"
+  },
+  {
+    "text": "Every book we read must leave us richer or poorer, sadder or happier, safer or more uncertain, but never intact.",
+    "author": "Nicolás Gómez Dávila"
+  },
+  {
+    "text": "Not everything that is faced can be changed, but nothing can be changed that is not faced.",
+    "author": "James Baldwin"
   },
   {
     "text": "Part of what is happening when you spend 7 hours reading a book, is you spend 7 hours with your mind on the topics in the book, grappling with them, drawing connections, having thoughts you would not otherwise have had. And so without that process of grappling, without those hours inside that book, it doesn't get inside you. It doesn't impress itself upon you. It doesn't change you. What reading and writing and processing information is supposed to do is change you.",
     "author": "Ezra Klein"
+  },
+  {
+    "text": "Love is the quality of attention we pay to things.",
+    "author": "J. D. McClatchy"
+  },
+  {
+    "text": "I had the epiphany that laughter was light, and light was laughter, and that this was the secret of the universe.",
+    "author": "Donna Tartt"
+  },
+  {
+    "text": "You sense far more than you are conscious of. Whether you want to or not.",
+    "author": "Tor Nørretranders"
+  },
+  {
+    "text": "You cannot stay on the summit forever; you have to come down again. So why bother in the first place ? Just this: what is above knows what is below, but what is below dos not know what is above. One climbs, one sees. One descends, one see no longer, but one has seen. There is an art of conducting ourselves in the lower regions by the memory of what one saw higher up. When one can no longer see, one can at least still know.",
+    "author": "Rene Daumal"
+  },
+  {
+    "text": "Interest is the most important thing in life; happiness is temporary, but interest is continuous.",
+    "author": "Georgia O’Keeffe"
   },
   {
     "text": "In the depth of winter, I finally learned that within me there lay an invincible summer.",
@@ -95,113 +517,28 @@
     "book": "Return to Tipasa"
   },
   {
-    "text": "Convictions are more dangerous enemies of truth than lies.",
-    "author": "Friedrich Nietzsche"
+    "text": "One of my hopes is to age into a better mindset. The general trend seems to become less open minded, less resilient, less capable of handling change with ease and flexibility as the years roll by. I hope to grow in the opposite direction. How can my mindset be better today than it was yesterday?",
+    "author": "James Clear"
   },
   {
-    "text": "It's not where you take things from — it's where you take things to.",
-    "author": "Jean-Luc Godard"
-  },
-  {
-    "text": "No matter how far you have gone down a wrong road, turn back.",
-    "author": "Turkish proverb"
-  },
-  {
-    "text": "There is nothing more important to true growth than realizing that you are not the voice of the mind, you are the one who hears it.",
-    "author": "Michael A. Singer"
-  },
-  {
-    "text": "Don't get bored with peace. Be in it. Go deeper into it. Look between the thoughts.",
-    "author": "Nisargadatta Maharaj"
-  },
-  {
-    "text": "The art of life is to know how to enjoy a little and to endure very much.",
-    "author": "William Hazlitt"
-  },
-  {
-    "text": "If you want real control, drop the illusion of control; let life have you. It does anyway. You're just telling yourself the story of how it doesn't.",
-    "author": "Byron Katie"
-  },
-  {
-    "text": "In my whole life, I have known no wise people (over a broad subject matter area) who didn’t read all the time—none, zero.",
-    "author": "Charlie Munger"
-  },
-  {
-    "text": "I am not a thing in the world; I am the space in which the world is happening.",
-    "author": "Richard Lang"
-  },
-  {
-    "text": "The curious paradox is that when I accept myself just as I am, then I can change.",
-    "author": "Carl Rogers"
-  },
-  {
-    "text": "Knowing your own darkness is the best method for dealing with the darknesses of other people.",
-    "author": "Carl Jung"
-  },
-  {
-    "text": "True security lies in the unrestrained embrace of insecurity—in the recognition that we never really stand on solid ground, and never can.",
-    "author": "Oliver Burkeman"
-  },
-  {
-    "text": "One can choose to go back toward safety or forward toward growth. Growth must be chosen again and again; fear must be overcome again and again.",
-    "author": "Abraham Maslow"
-  },
-  {
-    "text": "Now, there is a law written in the darkest of the Books of Life, and it is this: If you look at a thing nine hundred and ninety-nine times, you are perfectly safe; if you look at it the thousandth time, you are in frightful danger of seeing it for the first time.",
-    "author": "G.K. Chesterton"
-  },
-  {
-    "text": "It will not be a world of man versus machine. It will be a world of man plus machines.",
-    "author": "Ginni Rometty"
-  },
-  {
-    "text": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
-    "author": "Will Durant",
-    "book": "The Story of Philosophy"
-  },
-  {
-    "text": "Anything you have imposed on yourself to be unhappy is a concept. So, give it away.",
-    "author": "W. H. L. Poonja"
+    "text": "The urge to save humanity is almost always only a false-face for the urge to rule it.",
+    "author": "H. L. Mencken"
   },
   {
     "text": "We don't see things as they are, we see them as we are.",
     "author": "Anaïs Nin"
   },
   {
-    "text": "Rudeness is the weak man’s imitation of strength.",
-    "author": "Eric Hoffer"
-  },
-  {
-    "text": "Life is a process of becoming, a combination of states we have to go through. Where people fail is that they wish to elect a state and remain in it. This is a kind of death.",
-    "author": "Anaïs Nin"
-  },
-  {
-    "text": "Distrust all in whom the impulse to punish is powerful.",
-    "author": "Friedrich Nietzsche"
-  },
-  {
-    "text": "We don't receive wisdom; we must discover it for ourselves after a journey that no one can take for us or spare us.",
-    "author": "Marcel Proust"
-  },
-  {
-    "text": "Whether a thought is spoken or not, it is a real thing and has powers of reality.",
-    "author": "Frank Herbert"
-  },
-  {
-    "text": "Guarding your time isn't rude; it's how you get stuff done. Letting a meeting go on longer than necessary is nice to them, but unkind to yourself. Nice is what people want from you. Kindness is what you owe yourself.",
-    "author": "Shane Parrish"
-  },
-  {
     "text": "We are most of us governed by epistemologies that we know to be wrong.",
     "author": "Gregory Bateson"
   },
   {
-    "text": "It’s no use going back to yesterday, because I was a different person then.",
-    "author": "Lewis Carroll"
+    "text": "No matter how far you have gone down a wrong road, turn back.",
+    "author": "Turkish proverb"
   },
   {
-    "text": "The worst lesson that can be taught to a man is to rely upon others and to whine over his sufferings.",
-    "author": "Teddy Roosevelt"
+    "text": "Do everything with a mind that lets go. Do not expect praise or reward.",
+    "author": "Ajahn Chah"
   },
   {
     "text": "All happy families are alike; each unhappy family is unhappy in its own way.",
@@ -211,63 +548,160 @@
     "page": 1
   },
   {
-    "text": "The greatest personal limitation is to be found not in the things you want to do and can't, but in the things you've never considered doing.",
-    "author": "Richard Bandler"
+    "text": "What you seek is seeking you.",
+    "author": "Rumi"
   },
   {
-    "text": "The surest sign of wisdom is continual cheerfulness.",
-    "author": "Michel de Montaigne"
+    "text": "We have to continually be jumping off cliffs and developing our wings on the way down.",
+    "author": "Kurt Vonnegut"
   },
   {
-    "text": "A good life is one in which things do not go perfectly, but you find a way to have a good day regardless.",
-    "author": "James Clear"
+    "text": "However vast the darkness, we must supply our own light.",
+    "author": "Stanley Kubrick"
   },
   {
-    "text": "It is an unwritten rule of life that after every prolonged period of hardship and uncertainty, there is going to be a period when you are going to achieve quantum leaps across multiple areas of your life. The only requirement is that you do not give up on yourself.",
-    "author": "BeautyOfSaas"
+    "text": "People who get an unusual amount of work done are maniacal about removing things from their lives that others tolerate.",
+    "author": "Shane Parrish"
   },
   {
-    "text": "Do not wish for an easy life. Wish for the strength to endure a difficult one.",
-    "author": "Bruce Lee"
+    "text": "To understand and be understood, those are among life's greatest gifts, and every interaction is an opportunity to exchange them.",
+    "author": "Maria Popova"
   },
   {
-    "text": "Flowers fall even though we love them, and weeds grow even though we dislike them.",
-    "author": "Dōgen Zenji"
+    "text": "The creative adult is the child who survived.",
+    "author": "Julian F. Fleron"
   },
   {
-    "text": "Every book we read must leave us richer or poorer, sadder or happier, safer or more uncertain, but never intact.",
+    "text": "I look at what I have not and think myself unhappy; others look at what I have and think me happy.",
+    "author": "Joseph Roux"
+  },
+  {
+    "text": "It doesn't matter if the water is cold or warm if you're going to have to wade through it anyway.",
+    "author": "Pierre Teilhard de Chardin"
+  },
+  {
+    "text": "Dying societies accumulate laws like dying men accumulate remedies.",
     "author": "Nicolás Gómez Dávila"
   },
   {
-    "text": "To a very great degree, school is a place where children learn to be stupid.",
-    "author": "John Holt"
+    "text": "There's nothing you can cling to. No refuge. Just let go, man.",
+    "author": "Alan Watts"
   },
   {
-    "text": "When you are sorrowful look again in your heart, and you shall see that in truth you are weeping for that which has been your delight.",
-    "author": "Kahlil Gibran"
+    "text": "It will not be a world of man versus machine. It will be a world of man plus machines.",
+    "author": "Ginni Rometty"
   },
   {
-    "text": "The truth is not a crystal that can be slipped into one's pocket, but an endless current into which one falls headlong.",
-    "author": "Robert Musil"
+    "text": "If you are lonely when you are alone, you are in bad company.",
+    "author": "Jean-Paul Sartre"
   },
   {
-    "text": "You can’t define a person. You can’t sum anyone up. Life is non-summative—it is infinite.",
-    "author": "James Low"
+    "text": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Will Durant",
+    "book": "The Story of Philosophy"
+  },
+  {
+    "text": "You shouldn’t worry about criticism from someone that you would never ask advice from.",
+    "author": "Brian Halligan"
+  },
+  {
+    "text": "The world won't come to me… so I must go to it.",
+    "author": "Donna Tartt"
+  },
+  {
+    "text": "Humans are divided between those who can still look through the eyes of youth and those who cannot.",
+    "author": "Dave Eggers"
+  },
+  {
+    "text": "You are not your grand plans. You are your daily patterns.",
+    "author": "James Clear"
+  },
+  {
+    "text": "It's not where you take things from — it's where you take things to.",
+    "author": "Jean-Luc Godard"
+  },
+  {
+    "text": "The real truth, that dare not speak itself, is that no one is in control. Absolutely no one.",
+    "author": "Terence Mckenna"
+  },
+  {
+    "text": "The goal of life is to be excited to go to work and excited to go home.",
+    "author": "Josh Kushner"
+  },
+  {
+    "text": "To enjoy life, the adventurous state of mind must be grasped and maintained. The essential feature of adventure is that it is a going forward into unknown territory.",
+    "author": "Agnes Martin"
+  },
+  {
+    "text": "No amount of anxiety makes any difference to anything that is going to happen.",
+    "author": "Alan Watts"
   },
   {
     "text": "You never truly need what you want. That is the main and thoroughgoing key to serenity.",
     "author": "Albert Ellis"
   },
   {
-    "text": "Fear is a manipulative emotion that can trick us into living a boring life.",
-    "author": "Donald Miller"
+    "text": "Always remember that you are absolutely unique. Just like everyone else.",
+    "author": "Margaret Mead"
   },
   {
-    "text": "Awe is the moment when ego surrenders to wonder.",
-    "author": "Terry Tempest Williams"
+    "text": "To sit quietly, without trying to make something special happen, is the most important thing we can do for the transformation of our consciousness.",
+    "author": "Alan Watts"
   },
   {
-    "text": "People who get an unusual amount of work done are maniacal about removing things from their lives that others tolerate.",
+    "text": "There is nothing more important to true growth than realizing that you are not the voice of the mind, you are the one who hears it.",
+    "author": "Michael A. Singer"
+  },
+  {
+    "text": "Our thinking was limited by convention (the most subtle but oppressive dictator).",
+    "author": "Pip Williams"
+  },
+  {
+    "text": "The curious are provided with much fun and wisdom long after formal education has ended.",
+    "author": "Charlie Munger"
+  },
+  {
+    "text": "There are no failures - only feedback.",
+    "author": "Richard Bandler"
+  },
+  {
+    "text": "The greatest personal limitation is to be found not in the things you want to do and can't, but in the things you've never considered doing.",
+    "author": "Richard Bandler"
+  },
+  {
+    "text": "If intelligence is getting what you want, wisdom is wanting what's worth getting in the first place.",
+    "author": "Shane Parrish"
+  },
+  {
+    "text": "Without context, words and actions have no meaning at all.",
+    "author": "Gregory Bateson"
+  },
+  {
+    "text": "I learned to always take on things I'd never done before. Growth and comfort do not coexist.",
+    "author": "Ginni Rometty"
+  },
+  {
+    "text": "Whether a thought is spoken or not, it is a real thing and has powers of reality.",
+    "author": "Frank Herbert"
+  },
+  {
+    "text": "Now, there is a law written in the darkest of the Books of Life, and it is this: If you look at a thing nine hundred and ninety-nine times, you are perfectly safe; if you look at it the thousandth time, you are in frightful danger of seeing it for the first time.",
+    "author": "G.K. Chesterton"
+  },
+  {
+    "text": "Discoveries, like resources, may well be infinite: the more we discover, the more we are able to discover.",
+    "author": "Julian Simon"
+  },
+  {
+    "text": "Distrust all in whom the impulse to punish is powerful.",
+    "author": "Friedrich Nietzsche"
+  },
+  {
+    "text": "The truth does not change based on our ability to stomach it.",
+    "author": "Flannery o'Connor"
+  },
+  {
+    "text": "What you say about yourself is forgotten. What you do for others compounds. Serve people well, and their word about you will travel further than yours ever could.",
     "author": "Shane Parrish"
   },
   {
@@ -275,461 +709,31 @@
     "author": "Dorothy Nevill"
   },
   {
-    "text": "What you seek is seeking you.",
-    "author": "Rumi"
-  },
-  {
-    "text": "Errors using inadequate data are much less than those using no data at all.",
-    "author": "Charles Babbage"
-  },
-  {
-    "text": "It's one thing to get what you want. But it's another thing to want what's worth getting.",
-    "author": "Shane Parrish"
-  },
-  {
-    "text": "The task we must set for ourselves is not to feel secure, but to be able to tolerate insecurity.",
-    "author": "Erich Fromm"
-  },
-  {
-    "text": "Dying societies accumulate laws like dying men accumulate remedies.",
-    "author": "Nicolás Gómez Dávila"
-  },
-  {
-    "text": "Learning is a weightless treasure you can always carry easily.",
-    "author": "Chinese Proverb"
-  },
-  {
-    "text": "A real diamond, his father used to say, is never entirely free of inclusions. A real diamond is never perfect.",
-    "author": "Anthony Doerr"
-  },
-  {
-    "text": "The goal of life is to be excited to go to work and excited to go home.",
-    "author": "Josh Kushner"
-  },
-  {
-    "text": "When you stop expecting people to be perfect, you can like them for who they are.",
-    "author": "Donald Miller"
-  },
-  {
-    "text": "Humans are divided between those who can still look through the eyes of youth and those who cannot.",
-    "author": "Dave Eggers"
-  },
-  {
-    "text": "We have first raised a dust and then complain we cannot see.",
-    "author": "George Berkeley"
-  },
-  {
-    "text": "Follow your heart but take your brain with you.",
-    "author": "Alfred Adler"
-  },
-  {
-    "text": "One of my favorite lessons I’ve learnt from working with smart people:\n\nAction produces information. If you’re unsure of what to do, just do anything, even if it’s the wrong thing. This will give you information about what you should actually be doing.\n\nSounds simple on the surface - the hard part is making it part of your every day working process.",
-    "author": "Brian Armstrong"
-  },
-  {
-    "text": "He who makes no mistakes makes no progress.",
-    "author": "Teddy Roosevelt"
-  },
-  {
-    "text": "I learned to always take on things I'd never done before. Growth and comfort do not coexist.",
-    "author": "Ginni Rometty"
-  },
-  {
-    "text": "And what importance do I have in the courtroom of oblivion?",
-    "author": "Pablo Neruda"
-  },
-  {
-    "text": "I have learned silence from the talkative, toleration from the intolerant, and kindness from the unkind; yet strange, I am ungrateful to these teachers.",
-    "author": "Kahlil Gibran"
-  },
-  {
-    "text": "No faith that is not surrounded by doubt can survive.",
-    "author": "Elias Canetti"
-  },
-  {
-    "text": "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.",
-    "author": "Marcel Proust"
-  },
-  {
-    "text": "No emotion, any more than a wave, can long retain its own individual form.",
-    "author": "Henry Ward Beecher"
-  },
-  {
-    "text": "Wisdom tends to grow in proportion to one's awareness of one's ignorance.",
-    "author": "Anthony De Mello"
-  },
-  {
-    "text": "Man is profoundly dependent on the reflection of himself in another man's soul, be it even the soul of an idiot.",
-    "author": "Witold Gombrowicz"
-  },
-  {
-    "text": "Now is simply now. You are simply you. And tell me, since you want to leave the place where you are, where is it exactly you want to go?",
-    "author": "Kodo Sawaki"
-  },
-  {
-    "text": "When I argue with reality, I lose, but only 100% of the time.",
-    "author": "Byron Katie"
-  },
-  {
-    "text": "If we are ever in doubt what to do, it is a good rule to ask ourselves what we shall wish on the morrow that we had done.",
-    "author": "John Lubbock"
-  },
-  {
-    "text": "Beyond a wholesome discipline, be gentle with yourself. You are a child of the universe no less than the trees and the stars; you have a right to be here.",
-    "author": "Max Ehrmann",
-    "book": "Desiderata"
-  },
-  {
-    "text": "I had the epiphany that laughter was light, and light was laughter, and that this was the secret of the universe.",
-    "author": "Donna Tartt"
-  },
-  {
-    "text": "Do not be angry with the rain; it simply does not know how to fall upwards.",
-    "author": "Vladimir Nabokov"
-  },
-  {
-    "text": "Whatever inspiration is, it’s born from a continuous \"I don’t know.\"",
-    "author": "Wisława Szymborska"
-  },
-  {
-    "text": "However vast the darkness, we must supply our own light.",
-    "author": "Stanley Kubrick"
-  },
-  {
-    "text": "Children must be taught how to think, not what to think.",
-    "author": "Margaret Mead"
-  },
-  {
-    "text": "Most people self-limit their ability to learn. Just read books and talk to people. I didn't study rocket engineering, I picked it up along the way.",
-    "author": "Elon Musk"
-  },
-  {
-    "text": "At each increase of knowledge, as well as on the contrivance of every new tool, human labour becomes abridged.",
-    "author": "Charles Babbage"
-  },
-  {
-    "text": "See how letting go of the world is peaceful. There's nothing you need to hold on to. There's nothing you need to push away.",
-    "author": "Buddha"
-  },
-  {
-    "text": "Life is an experimental journey undertaken involuntarily.",
-    "author": "Fernando Pessoa"
-  },
-  {
-    "text": "It is easier to fight for one’s principles than to live up to them.",
-    "author": "Alfred Adler"
-  },
-  {
-    "text": "Greatness is overrated. It's a form of extremism, and it comes with extreme vices that I have no interest in.",
-    "author": "Kevin Kelly"
-  },
-  {
-    "text": "Not everything that is faced can be changed, but nothing can be changed that is not faced.",
-    "author": "James Baldwin"
-  },
-  {
-    "text": "Fear and ego—in other words, ignorance—are keeping your hand on the tiller. Release the tiller for whatever reason, and the steering takes care of itself.",
-    "author": "Jed McKenna"
-  },
-  {
-    "text": "The only way to make sense out of change is to plunge into it, move with it, and join the dance.",
-    "author": "Alan Watts"
-  },
-  {
-    "text": "The miracle is not to walk on water. The miracle is to walk on the green earth in the present moment, to appreciate the peace and beauty that are available now.",
-    "author": "Thich Nhat Hanh"
-  },
-  {
-    "text": "Enlightenment is always preceded by confusion.",
-    "author": "Milton Erickson"
+    "text": "Fear, to a great extent, is born of a story we tell ourselves.",
+    "author": "Cheryl Strayed"
   },
   {
     "text": "If I know what I shall find, I do not want to find it. Uncertainty is the salt of life.",
     "author": "Erwin Chargaff"
   },
   {
-    "text": "A pessimist sees the difficulty in every opportunity; an optimist sees the opportunity in every difficulty.",
-    "author": "Winston Churchill"
-  },
-  {
-    "text": "Do you think I count the days ? There is only one day left, always starting over. It is given to us at dawn and taken away from us at dusk.",
-    "author": "Jean-Paul Sartre"
-  },
-  {
-    "text": "If you are patient in one moment of anger, you will escape 100 days of sorrow.",
-    "author": "Chinese proverb"
-  },
-  {
-    "text": "The curious are provided with much fun and wisdom long after formal education has ended.",
-    "author": "Charlie Munger"
-  },
-  {
-    "text": "It is amazing what you can accomplish if you do not care who gets the credit.",
-    "author": "Harry S. Truman"
-  },
-  {
-    "text": "We can change only as fast as the rest of society will change.",
-    "author": "Michael Moritz"
-  },
-  {
-    "text": "Change will lead to insight far more often than insight will lead to change.",
-    "author": "Milton Erickson"
-  },
-  {
-    "text": "My mission is to celebrate higher things, and that is why God gave me speech and a grateful heart.",
-    "author": "Hölderlin"
-  },
-  {
-    "text": "As you think, so shall you become.",
-    "author": "Bruce Lee"
-  },
-  {
-    "text": "How often in life we complete a task that was beyond the capability of the person who we were when we started it.",
-    "author": "Robert Brault"
-  },
-  {
-    "text": "The universe is wider than our views of it.",
-    "author": "Henry David Thoreau"
-  },
-  {
-    "text": "When we are no longer able to change a situation, we are challenged to change ourselves.",
-    "author": "Victor Frankl"
-  },
-  {
-    "text": "If you are lonely when you are alone, you are in bad company.",
-    "author": "Jean-Paul Sartre"
-  },
-  {
-    "text": "Wisdom is oftentimes nearer when we stoop than when we soar.",
-    "author": "William Wordsworth"
-  },
-  {
-    "text": "The homemaker has the ultimate career. All other careers exist for one purpose only - and that is to support the ultimate career.",
-    "author": "C. S. Lewis"
-  },
-  {
-    "text": "Survival is the ability to swim in strange water.",
-    "author": "Frank Herbert"
-  },
-  {
-    "text": "Character consists of what you do on the third and fourth tries.",
-    "author": "James Michener"
-  },
-  {
-    "text": "Fear, to a great extent, is born of a story we tell ourselves.",
-    "author": "Cheryl Strayed"
-  },
-  {
-    "text": "Life changes in the instant. The ordinary instant.",
-    "author": "Joan Didion"
-  },
-  {
-    "text": "You aren't wealthy until you have something money can't buy.",
-    "author": "Garth Brooks"
-  },
-  {
-    "text": "The modern world is optimized for convenience, not improvement.\n\nThe default path is usually the more convenient path. And I get it. Who wants their days to be a pain in the neck? I like sitting in air-conditioned rooms and watching my favorite shows too.\n\nBut the body and mind only grow when placed under a stimulus. If you want improvement, you have to choose something different than convenience.\n\nIt can be lovely to have a day where you do not push yourself, but it rarely works out well if you have a life where you do not push yourself.",
-    "author": "James Clear"
-  },
-  {
-    "text": "To enjoy life, the adventurous state of mind must be grasped and maintained. The essential feature of adventure is that it is a going forward into unknown territory.",
-    "author": "Agnes Martin"
-  },
-  {
-    "text": "Incredible things can be done simply if we are committed to making them happen.",
-    "author": "Sadhguru"
-  },
-  {
-    "text": "Figuring out what you don't know or aren't sure of is the greatest intellectual skill of all.",
-    "author": "John Holt"
-  },
-  {
-    "text": "You are not your grand plans. You are your daily patterns.",
-    "author": "James Clear"
-  },
-  {
-    "text": "The maxim 'Nothing avails but perfection' may be spelt shorter: 'Paralysis.'",
-    "author": "Winston Churchill"
-  },
-  {
-    "text": "Without context, words and actions have no meaning at all.",
-    "author": "Gregory Bateson"
-  },
-  {
-    "text": "One of my hopes is to age into a better mindset. The general trend seems to become less open minded, less resilient, less capable of handling change with ease and flexibility as the years roll by. I hope to grow in the opposite direction. How can my mindset be better today than it was yesterday?",
-    "author": "James Clear"
-  },
-  {
-    "text": "The world won't come to me… so I must go to it.",
-    "author": "Donna Tartt"
-  },
-  {
-    "text": "Discoveries, like resources, may well be infinite: the more we discover, the more we are able to discover.",
-    "author": "Julian Simon"
-  },
-  {
-    "text": "Our thinking was limited by convention (the most subtle but oppressive dictator).",
-    "author": "Pip Williams"
-  },
-  {
-    "text": "Many paths lead from the foot of the mountain, but at the peak we all gaze at the single bright moon.",
-    "author": "Ikkyu"
-  },
-  {
-    "text": "It doesn't matter if the water is cold or warm if you're going to have to wade through it anyway.",
-    "author": "Pierre Teilhard de Chardin"
-  },
-  {
-    "text": "Interest is the most important thing in life; happiness is temporary, but interest is continuous.",
-    "author": "Georgia O’Keeffe"
-  },
-  {
-    "text": "The creative adult is the child who survived.",
-    "author": "Julian F. Fleron"
-  },
-  {
-    "text": "The Universe began when Nothing saw itself in the mirror.",
-    "author": "Tor Nørretranders"
-  },
-  {
-    "text": "No amount of anxiety makes any difference to anything that is going to happen.",
-    "author": "Alan Watts"
-  },
-  {
-    "text": "For both ruin and recovery are from within.",
-    "author": "Epictetus"
-  },
-  {
-    "text": "You sense far more than you are conscious of. Whether you want to or not.",
-    "author": "Tor Nørretranders"
-  },
-  {
-    "text": "Gratitude is the intention to count your blessings every day, while avoiding, whenever possible, the belief that you need or deserve different circumstances.",
-    "author": "Timothy Miller"
-  },
-  {
-    "text": "As something, I am merely that thing. As no-thing, I am all things.",
-    "author": "Douglas Harding"
-  },
-  {
-    "text": "Just set one day’s work in front of the last day’s work. That’s the way it comes out. And that’s the only way it does.",
-    "author": "John Steinbeck"
-  },
-  {
-    "text": "Out of the night that covers me,\nBlack as the pit from pole to pole,\nI thank whatever gods may be\nFor my unconquerable soul.\n\nIn the fell clutch of circumstance\nI have not winced nor cried aloud.\nUnder the bludgeonings of chance\nMy head is bloody, but unbowed.\n\nBeyond this place of wrath and tears\nLooms but the Horror of the shade,\nAnd yet the menace of the years\nFinds and shall find me unafraid.\n\nIt matters not how strait the gate,\nHow charged with punishments the scroll,\nI am the master of my fate,\nI am the captain of my soul.",
-    "author": "William Ernest Henley",
-    "book": "Invictus"
-  },
-  {
-    "text": "It is better to solve one problem five different ways, than to solve five problems one way.",
-    "author": "George Pólya"
-  },
-  {
-    "text": "You may be deceived if you trust too much, but you’ll live in torment if you don’t trust enough.",
-    "author": "Frank Crane"
+    "text": "Learning is a weightless treasure you can always carry easily.",
+    "author": "Chinese Proverb"
   },
   {
     "text": "The first effect of adjusting to other people is that one becomes boring.",
     "author": "Elias Canetti"
   },
   {
-    "text": "There are no failures - only feedback.",
-    "author": "Richard Bandler"
+    "text": "You may be deceived if you trust too much, but you’ll live in torment if you don’t trust enough.",
+    "author": "Frank Crane"
   },
   {
-    "text": "One does what one is; one becomes what one does.",
-    "author": "Robert Musil"
+    "text": "If you are patient in one moment of anger, you will escape 100 days of sorrow.",
+    "author": "Chinese proverb"
   },
   {
-    "text": "To understand and be understood, those are among life's greatest gifts, and every interaction is an opportunity to exchange them.",
-    "author": "Maria Popova"
-  },
-  {
-    "text": "In most of our human relationships, we spend much of our time reassuring one another that our costumes of identity are on straight.",
-    "author": "Ram Dass"
-  },
-  {
-    "text": "Words define us, they explain us, and, on occasion, they serve to control or isolate us.",
-    "author": "Pip Williams"
-  },
-  {
-    "text": "Success is something you attract by the person you become.",
-    "author": "Jim Rohn"
-  },
-  {
-    "text": "So much has been given to me I have not the time to ponder that which has been denied.",
-    "author": "Helen Keller"
-  },
-  {
-    "text": "You cannot stay on the summit forever; you have to come down again. So why bother in the first place ? Just this: what is above knows what is below, but what is below dos not know what is above. One climbs, one sees. One descends, one see no longer, but one has seen. There is an art of conducting ourselves in the lower regions by the memory of what one saw higher up. When one can no longer see, one can at least still know.",
-    "author": "Rene Daumal"
-  },
-  {
-    "text": "We have to continually be jumping off cliffs and developing our wings on the way down.",
-    "author": "Kurt Vonnegut"
-  },
-  {
-    "text": "What you say about yourself is forgotten. What you do for others compounds. Serve people well, and their word about you will travel further than yours ever could.",
-    "author": "Shane Parrish"
-  },
-  {
-    "text": "You have to do nothing to be who you are. Nothing at all.",
-    "author": "H. W. L. Poonja"
-  },
-  {
-    "text": "Few men think; yet all have opinions.",
-    "author": "George Berkeley"
-  },
-  {
-    "text": "The years teach much which the days never know.",
-    "author": "Ralph Waldo Emerson"
-  },
-  {
-    "text": "I look at what I have not and think myself unhappy; others look at what I have and think me happy.",
-    "author": "Joseph Roux"
-  },
-  {
-    "text": "The real truth, that dare not speak itself, is that no one is in control. Absolutely no one.",
-    "author": "Terence Mckenna"
-  },
-  {
-    "text": "If you want to ruin your life, spend it trying to change your spouse's behaviour.",
-    "author": "Charlie Munger"
-  },
-  {
-    "text": "You don't have a right to the cards you believe you should have been dealt with. You have an obligation to play the hell out of the ones you're holding.",
-    "author": "Cheryl Strayed"
-  },
-  {
-    "text": "In wisdom gathered over time I have found that every experience is a form of exploration.",
-    "author": "Aldous Huxley"
-  },
-  {
-    "text": "In times of change, learners inherit the earth, while the learned find themselves beautifully equipped to deal with a world that no longer exists.",
-    "author": "Eric Hoffer"
-  },
-  {
-    "text": "No job is too small. No task is below you.",
-    "author": "Harrison McCain"
-  },
-  {
-    "text": "Beware the barrenness of a busy life.",
-    "author": "Socrates"
-  },
-  {
-    "text": "There's nothing you can cling to. No refuge. Just let go, man.",
-    "author": "Alan Watts"
-  },
-  {
-    "text": "To sit quietly, without trying to make something special happen, is the most important thing we can do for the transformation of our consciousness.",
-    "author": "Alan Watts"
-  },
-  {
-    "text": "Be able to be alone. Lose not the advantage of solitude, and the society of thyself.",
-    "author": "Thomas Browne"
-  },
-  {
-    "text": "Nothing diminishes anxiety faster than action.",
-    "author": "Walter Anderson"
+    "text": "A pessimist sees the difficulty in every opportunity; an optimist sees the opportunity in every difficulty.",
+    "author": "Winston Churchill"
   }
 ]
