@@ -11,6 +11,14 @@ const quotesPath = "book-quotes.widget/quotes.json";
 
 export const command = `cat "$HOME/Library/Application Support/Übersicht/widgets/${quotesPath}"`;
 
+// Never re-picks the quote already on screen.
+const pickIndex = (count, exclude) => {
+  if (count === 1) return 0;
+  let index = Math.floor(Math.random() * count);
+  while (index === exclude) index = Math.floor(Math.random() * count);
+  return index;
+};
+
 // Parse the quotes and select a random one
 export const updateState = (event, previousState) => {
   if (event.error) {
@@ -23,8 +31,8 @@ export const updateState = (event, previousState) => {
       return { error: "No quotes available" };
     }
 
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    return { quote: quotes[randomIndex], error: null };
+    const index = pickIndex(quotes.length, previousState ? previousState.index : -1);
+    return { quote: quotes[index], index: index, error: null };
   } catch (e) {
     return { error: `Failed to parse quotes: ${e.message}` };
   }
@@ -33,6 +41,7 @@ export const updateState = (event, previousState) => {
 // Initial state
 export const initialState = {
   quote: null,
+  index: -1,
   error: null,
 };
 

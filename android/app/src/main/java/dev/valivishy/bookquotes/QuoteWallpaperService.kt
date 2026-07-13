@@ -107,10 +107,18 @@ class QuoteWallpaperService : WallpaperService() {
 
         private fun nextQuote() {
             if (quotes.isEmpty()) return
-            currentIndex = (0 until quotes.size).random()
+            currentIndex = pickIndex()
             lastRotatedAt = System.currentTimeMillis()
             draw()
             scheduleRotation()
+        }
+
+        // Never re-picks the quote already on screen.
+        private fun pickIndex(): Int {
+            if (quotes.size == 1) return 0
+            var index = quotes.indices.random()
+            while (index == currentIndex) index = quotes.indices.random()
+            return index
         }
 
         private fun scheduleRotation() {
