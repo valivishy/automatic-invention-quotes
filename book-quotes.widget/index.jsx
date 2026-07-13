@@ -4,7 +4,7 @@
  */
 
 // Widget configuration
-export const refreshFrequency = 30 * 60 * 1000; // 30 minutes in milliseconds
+export const refreshFrequency = 3 * 60 * 1000; // 3 minutes in milliseconds
 
 // Load quotes from the bundled JSON file
 const quotesPath = "book-quotes.widget/quotes.json";

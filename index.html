@@ -111,9 +111,8 @@
 
 <script>
 const QUOTES_URL = 'book-quotes.widget/quotes.json';
-const LAST_IDX_KEY = 'bq_last_idx';
-
-let currentIdx = -1;
+const ROTATE_MS = 3 * 60 * 1000;
+const STORAGE_KEY = 'bq_state';
 
 function renderQuote(quote) {
   const wrapper = document.getElementById('quote');
@@ -138,31 +137,30 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-// Never re-picks the quote already on screen.
-function pickIndex(quotes) {
-  if (quotes.length === 1) return 0;
-  let idx = Math.floor(Math.random() * quotes.length);
-  while (idx === currentIdx) idx = Math.floor(Math.random() * quotes.length);
+function pickQuote(quotes) {
+  const now = Date.now();
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (saved && (now - saved.ts) < ROTATE_MS && saved.idx < quotes.length) {
+      return saved.idx;
+    }
+  } catch (_) {}
+
+  const idx = Math.floor(Math.random() * quotes.length);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ idx: idx, ts: now }));
   return idx;
 }
 
-function showNextQuote(quotes, animate) {
+function rotateQuote(quotes) {
   const wrapper = document.getElementById('quote');
-
-  const commit = function() {
-    currentIdx = pickIndex(quotes);
-    try { localStorage.setItem(LAST_IDX_KEY, String(currentIdx)); } catch (_) {}
-    renderQuote(quotes[currentIdx]);
-    wrapper.classList.remove('fade-out');
-  };
-
-  if (!animate) {
-    commit();
-    return;
-  }
-
   wrapper.classList.add('fade-out');
-  setTimeout(commit, 600);
+
+  setTimeout(function() {
+    const idx = Math.floor(Math.random() * quotes.length);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ idx: idx, ts: Date.now() }));
+    renderQuote(quotes[idx]);
+    wrapper.classList.remove('fade-out');
+  }, 600);
 }
 
 async function init() {
@@ -183,16 +181,10 @@ async function init() {
     return;
   }
 
-  // Seed from the last shown quote so a cold start does not repeat it.
-  const saved = parseInt(localStorage.getItem(LAST_IDX_KEY), 10);
-  if (!isNaN(saved) && saved >= 0 && saved < quotes.length) currentIdx = saved;
+  const idx = pickQuote(quotes);
+  renderQuote(quotes[idx]);
 
-  showNextQuote(quotes, false);
-
-  // Fires on unlock and when returning to the page: the only rotation trigger.
-  document.addEventListener('visibilitychange', function() {
-    if (document.visibilityState === 'visible') showNextQuote(quotes, true);
-  });
+  setInterval(function() { rotateQuote(quotes); }, ROTATE_MS);
 }
 
 init();

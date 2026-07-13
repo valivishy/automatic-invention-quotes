@@ -22,10 +22,10 @@ class QuoteWallpaperService : WallpaperService() {
     inner class QuoteEngine : Engine() {
 
         private val handler = Handler(Looper.getMainLooper())
-
-        @Volatile
+        private val rotateMs = 3 * 60 * 1000L
         private var quotes = emptyList<Quote>()
         private var currentIndex = -1
+        private var lastRotatedAt = 0L
 
         private val bgPaint = Paint().apply { color = Color.parseColor("#111111") }
 
@@ -41,19 +41,25 @@ class QuoteWallpaperService : WallpaperService() {
             textSize = 36f
         }
 
+        private val rotateRunnable = Runnable { nextQuote() }
+
         override fun onSurfaceCreated(holder: SurfaceHolder) {
             super.onSurfaceCreated(holder)
             loadQuotes()
         }
 
-        // Visibility is the only rotation trigger: the wallpaper becomes visible on wake,
-        // on unlock, and on returning to the home screen.
         override fun onVisibilityChanged(visible: Boolean) {
-            if (visible) nextQuote()
+            if (visible) {
+                val elapsed = System.currentTimeMillis() - lastRotatedAt
+                if (elapsed >= rotateMs) nextQuote() else draw()
+                scheduleRotation()
+            } else {
+                handler.removeCallbacks(rotateRunnable)
+            }
         }
 
         override fun onSurfaceDestroyed(holder: SurfaceHolder) {
-            handler.removeCallbacksAndMessages(null)
+            handler.removeCallbacks(rotateRunnable)
             super.onSurfaceDestroyed(holder)
         }
 
@@ -100,20 +106,16 @@ class QuoteWallpaperService : WallpaperService() {
         }
 
         private fun nextQuote() {
-            if (quotes.isEmpty()) {
-                draw()
-                return
-            }
-            currentIndex = pickIndex()
+            if (quotes.isEmpty()) return
+            currentIndex = (0 until quotes.size).random()
+            lastRotatedAt = System.currentTimeMillis()
             draw()
+            scheduleRotation()
         }
 
-        // Never re-picks the quote already on screen.
-        private fun pickIndex(): Int {
-            if (quotes.size == 1) return 0
-            var index = quotes.indices.random()
-            while (index == currentIndex) index = quotes.indices.random()
-            return index
+        private fun scheduleRotation() {
+            handler.removeCallbacks(rotateRunnable)
+            handler.postDelayed(rotateRunnable, rotateMs)
         }
 
         private fun draw() {

@@ -7,7 +7,7 @@ Full-screen book quotes on your macOS desktop using [Übersicht](http://tracesof
 - Full-screen quote display over your wallpaper
 - Elegant serif typography with drop shadow
 - Automatic dark/light mode support
-- Rotates quotes every 30 minutes
+- Rotates quotes every 3 minutes
 - Auto-starts on login
 
 ## Installation
@@ -55,7 +55,7 @@ Only `text` is required. All other fields are optional.
 
 Edit `~/Library/Application Support/Übersicht/widgets/book-quotes.widget/index.jsx`:
 
-- **Refresh rate**: Change `refreshFrequency` (default: 30 minutes)
+- **Refresh rate**: Change `refreshFrequency` (default: 3 minutes)
 - **Font size**: Modify `fontSize` in `styles.quoteText`
 - **Max width**: Adjust `maxWidth` in `styles.quoteWrapper`
 
